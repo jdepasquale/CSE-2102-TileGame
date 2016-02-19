@@ -9,7 +9,7 @@ public class Display {
 	
 	private JFrame frame;
 	private Canvas canvas;
-	
+	public int x = 0;
 	private String title;
 	private int width;
 	private int height;
