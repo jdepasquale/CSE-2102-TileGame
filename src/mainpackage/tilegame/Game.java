@@ -9,7 +9,7 @@ public class Game implements Runnable {
 	
 	private Display display;
 	public int width;
-	public int y = 0;
+	public int y = 4;
 	public int height;
 	public String title;
 	private boolean running = false;
