@@ -1,5 +1,6 @@
 package mainpackage.tilegame;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 
@@ -9,7 +10,7 @@ public class Game implements Runnable {
 	
 	private Display display;
 	public int width;
-	public int y = 4;
+	//public int y = 4;
 	public int height;
 	public String title;
 	private boolean running = false;
@@ -46,9 +47,15 @@ public class Game implements Runnable {
 			return;
 		}
 		g = bs.getDrawGraphics();
+		//clear screen
+		g.clearRect(0,0, width, height); //clears screen between points
 		//Draw Here!
-		g.fillRect(0, 0, width, height); //draw rectangle at (0,0)
-		
+		g.setColor(Color.RED);
+		g.fillRect(10, 50, 50, 70 ); //draw rectangle at (0,0)
+		g.setColor(Color.GREEN);
+		g.fillRect(5, 80, 1500, 10 );
+		g.setColor(Color.CYAN);
+		g.fillRect(150, 60, 80, 80);
 		//End Drawing.
 		bs.show(); // display new buffer
 		g.dispose();// clear old resource
