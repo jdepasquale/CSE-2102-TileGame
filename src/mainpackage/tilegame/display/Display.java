@@ -9,7 +9,6 @@ public class Display {
 	
 	private JFrame frame;
 	private Canvas canvas;
-	//public int x = 0;
 	private String title;
 	private int width;
 	private int height;
@@ -34,6 +33,7 @@ public class Display {
 		canvas.setPreferredSize(new Dimension(width,height)); // set size of canvas we want
 		canvas.setMaximumSize(new Dimension(width,height));
 		canvas.setMinimumSize(new Dimension(width,height));
+		canvas.setFocusable(false);//Giving JFrame focus...?
 		
 		frame.add(canvas); //add canvas to frame
 		frame.pack(); // resizes window to show full canvas
@@ -41,6 +41,10 @@ public class Display {
 	
 	public Canvas getCanvas(){
 		return canvas;
+	}
+	
+	public JFrame getFrame(){
+		return frame;
 	}
 	
 }
