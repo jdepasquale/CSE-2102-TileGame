@@ -9,7 +9,7 @@ import mainpackage.tilegame.tiles.Tile;
 public class Rock2 extends StaticEntity{
 	
 	public Rock2(Handler handler, float x, float y, String lastAnimDirection ){
-		super(handler, x, y, Tile.TILEWIDTH, (Tile.TILEHEIGHT *2), lastAnimDirection);
+		super(handler, x, y, Tile.TILEWIDTH, (Tile.TILEHEIGHT), lastAnimDirection);
 		
 		collisionBounds.x = 0;
 		collisionBounds.y = 0;

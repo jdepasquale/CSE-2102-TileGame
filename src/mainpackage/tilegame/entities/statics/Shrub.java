@@ -9,12 +9,13 @@ import mainpackage.tilegame.tiles.Tile;
 public class Shrub extends StaticEntity{
 	
 	public Shrub(Handler handler, float x, float y, String lastAnimDirection ){
-		super(handler, x, y, Tile.TILEWIDTH, (Tile.TILEHEIGHT *2), lastAnimDirection);
+		super(handler, x, y, Tile.TILEWIDTH, (Tile.TILEHEIGHT *3/2
+				), lastAnimDirection);
 		
 		collisionBounds.x = 0;
-		collisionBounds.y = 0;
+		collisionBounds.y = height/2;
 		collisionBounds.width = width ;
-		collisionBounds.height = height ;
+		collisionBounds.height = height/4 ;
 	
 	}
 

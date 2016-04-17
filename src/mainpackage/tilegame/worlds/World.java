@@ -4,6 +4,10 @@ import java.awt.Graphics;
 import mainpackage.tilegame.Handler;
 import mainpackage.tilegame.entities.EntityManager;
 import mainpackage.tilegame.entities.Creatures.Player;
+import mainpackage.tilegame.entities.statics.Iceberg;
+import mainpackage.tilegame.entities.statics.Rock1;
+import mainpackage.tilegame.entities.statics.Rock2;
+import mainpackage.tilegame.entities.statics.Shrub;
 import mainpackage.tilegame.entities.statics.Tree;
 import mainpackage.tilegame.tiles.Tile;
 import mainpackage.tilegame.utils.Utils;
@@ -23,6 +27,13 @@ public class World {
 		this.handler = handler;
 		entityManager = new EntityManager(handler, new Player(handler, 100, 100, "D"));
 		entityManager.addEntity(new Tree(handler, 640, 640, "D"));
+		//entityManager.addEntity(new Rock1(handler, 100,160, "D"));
+		//entityManager.addEntity(new Rock2(handler, 100,500, "D"));
+		//entityManager.addEntity(new Iceberg(handler, 100,260, "D"));
+		//entityManager.addEntity(new Shrub(handler, 100,300, "D"));
+		//entityManager.addEntity(new Shrub(handler, 151,300, "D"));
+		//entityManager.addEntity(new Shrub(handler, 100,332, "D"));
+		//entityManager.addEntity(new Shrub(handler, 100,364, "D"));
 		LoadWorld(path);
 		
 		entityManager.getPlayer().setX(spawnX);

@@ -2,9 +2,9 @@ package mainpackage.tilegame.tiles;
 
 import mainpackage.tilegame.gfx.Assets;
 
-public class BridgeR extends Tile{
+public class BridgeRTile extends Tile{
 
-	public BridgeR(int id) {
+	public BridgeRTile(int id) {
 		super(Assets.bridgeR, id);
 	}
 
