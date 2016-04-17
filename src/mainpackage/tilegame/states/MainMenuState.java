@@ -1,14 +1,12 @@
 package mainpackage.tilegame.states;
 
 import java.awt.Graphics;
-
-import mainpackage.tilegame.Game;
-import mainpackage.tilegame.gfx.Assets;
+import mainpackage.tilegame.Handler;
 
 public class MainMenuState extends State {
 	
-	public MainMenuState(Game game){
-		super(game);
+	public MainMenuState(Handler handler){
+		super(handler);
 	}
 
 	@Override
@@ -19,7 +17,7 @@ public class MainMenuState extends State {
 
 	@Override
 	public void render(Graphics g) {
-		g.drawImage(Assets.background, 0, 0, null);
+		
 		
 	}
 

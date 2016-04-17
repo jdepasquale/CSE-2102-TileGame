@@ -1,13 +1,12 @@
 package mainpackage.tilegame.states;
 
 import java.awt.Graphics;
-
-import mainpackage.tilegame.Game;
+import mainpackage.tilegame.Handler;
 
 public class ControlsState extends State{
 
-	public ControlsState(Game game){
-		super(game);
+	public ControlsState(Handler handler){
+		super(handler);
 	}
 	
 	@Override

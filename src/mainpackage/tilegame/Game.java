@@ -1,14 +1,10 @@
 package mainpackage.tilegame;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
-
 import mainpackage.tilegame.display.Display;
 import mainpackage.tilegame.gfx.Assets;
-import mainpackage.tilegame.gfx.ImageLoader;
-import mainpackage.tilegame.gfx.SpriteSheet;
+import mainpackage.tilegame.gfx.GameCamera;
 import mainpackage.tilegame.input.KeyManager;
 import mainpackage.tilegame.states.ControlsState;
 import mainpackage.tilegame.states.GameState;
@@ -18,8 +14,8 @@ import mainpackage.tilegame.states.State;
 public class Game implements Runnable {
 	
 	private Display display;
-	public int width;
-	public int height;
+	private int width;
+	private int height;
 	public String title;
 	
 	private boolean running = false;
@@ -42,6 +38,11 @@ public class Game implements Runnable {
 	//Input
 	private KeyManager keyManager;
 	
+	//Camera
+	private GameCamera gameCamera;
+	
+	//Handler
+	private Handler handler;
 	
 	
 	public Game(String title, int width, int height){
@@ -57,10 +58,13 @@ public class Game implements Runnable {
 		display.getFrame().addKeyListener(keyManager); // add key listener to JFrame
 		Assets.init();
 		
+		handler = new Handler(this);
+		gameCamera = new GameCamera(handler, 0,0); //(0,0)= no shift
 		
-		gameState = new GameState(this); //initialize gameState as a GameState
-		mainMenuState = new MainMenuState(this);
-		controlsState = new ControlsState(this);
+		
+		gameState = new GameState(handler); //initialize gameState as a GameState
+		mainMenuState = new MainMenuState(handler);
+		controlsState = new ControlsState(handler);
 		
 		State.setState(gameState); // call this anywhere to set state.
 	}
@@ -148,6 +152,18 @@ public class Game implements Runnable {
 	
 	public KeyManager getKeyManager(){
 		return keyManager;
+	}
+	
+	public GameCamera getGameCamera(){
+		return gameCamera;
+	}
+	
+	public int getWidth(){
+		return width;
+	}
+	
+	public int getHeight(){
+		return height;
 	}
 	
 	public synchronized void start(){

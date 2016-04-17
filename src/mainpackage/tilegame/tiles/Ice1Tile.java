@@ -2,12 +2,11 @@ package mainpackage.tilegame.tiles;
 
 import mainpackage.tilegame.gfx.Assets;
 
-public class SandTile extends Tile{
+public class Ice1Tile extends Tile {
 
-	public SandTile(int id) {
-		super(Assets.sand, id);
+	public Ice1Tile(int id) {
+		super(Assets.ice1, id);
 		
 	}
-	
 
 }

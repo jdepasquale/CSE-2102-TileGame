@@ -14,6 +14,7 @@ public class Utils {
 				builder.append(line + "\n"); //print line then add new line
 				
 			}
+			br.close();
 			
 		}catch(IOException e){
 			e.printStackTrace();// prints error to screen
