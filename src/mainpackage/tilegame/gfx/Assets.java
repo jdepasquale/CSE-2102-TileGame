@@ -66,6 +66,7 @@ public class Assets {
 	
 	public static BufferedImage pauseScreenImage;
 	public static BufferedImage mainMenuImage;
+
 	
 	public static void init(){
 		
