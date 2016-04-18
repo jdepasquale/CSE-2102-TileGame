@@ -6,9 +6,11 @@ import mainpackage.tilegame.display.Display;
 import mainpackage.tilegame.gfx.Assets;
 import mainpackage.tilegame.gfx.GameCamera;
 import mainpackage.tilegame.input.KeyManager;
-import mainpackage.tilegame.states.ControlsState;
+import mainpackage.tilegame.input.MouseManager;
+
 import mainpackage.tilegame.states.GameState;
 import mainpackage.tilegame.states.MainMenuState;
+import mainpackage.tilegame.states.PauseState;
 import mainpackage.tilegame.states.State;
 
 public class Game implements Runnable {
@@ -31,12 +33,41 @@ public class Game implements Runnable {
 	private Thread thread; // the thread to run the game on
 	
 	//States
+	
 	private State gameState; //declare gameState a state
 	private State mainMenuState; 
-	private State controlsState;
+	private State pauseState;
+	
+	public State getGameState() {
+		return gameState;
+	}
+
+	public State getMainMenuState() {
+		return mainMenuState;
+	}
+
+	public State getPauseState() {
+		return pauseState;
+	}
+
+
+	public void setGameState(State gameState) {
+		this.gameState = gameState;
+	}
+
+
+	public void setMainMenuState(State mainMenuState) {
+		this.mainMenuState = mainMenuState;
+	}
+
+
+	public void setPauseState(State pauseState) {
+		this.pauseState = pauseState;
+	}
 	
 	//Input
 	private KeyManager keyManager;
+	private MouseManager mouseManager;
 	
 	//Camera
 	private GameCamera gameCamera;
@@ -50,12 +81,19 @@ public class Game implements Runnable {
 		this.height = height;
 		this.title = title;
 		keyManager = new KeyManager();
+		mouseManager = new MouseManager();
 		
 	}
+
+
 
 	private void init(){ //initializes graphics 
 		display = new Display(title, width, height);
 		display.getFrame().addKeyListener(keyManager); // add key listener to JFrame
+		display.getFrame().addMouseListener(mouseManager);
+		display.getFrame().addMouseMotionListener(mouseManager);
+		display.getCanvas().addMouseListener(mouseManager);
+		display.getCanvas().addMouseMotionListener(mouseManager);
 		Assets.init();
 		
 		handler = new Handler(this);
@@ -64,9 +102,9 @@ public class Game implements Runnable {
 		
 		gameState = new GameState(handler); //initialize gameState as a GameState
 		mainMenuState = new MainMenuState(handler);
-		controlsState = new ControlsState(handler);
+		pauseState = new PauseState(handler);
 		
-		State.setState(gameState); // call this anywhere to set state.
+		State.setState(mainMenuState); // call this anywhere to set state.
 	}
 	
 
@@ -152,6 +190,10 @@ public class Game implements Runnable {
 	
 	public KeyManager getKeyManager(){
 		return keyManager;
+	}
+	
+	public MouseManager getMouseManager(){
+		return mouseManager;
 	}
 	
 	public GameCamera getGameCamera(){

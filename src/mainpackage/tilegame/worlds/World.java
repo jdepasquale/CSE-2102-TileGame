@@ -35,6 +35,9 @@ public class World {
 		//entityManager.addEntity(new Shrub(handler, 100,332, "D"));
 		//entityManager.addEntity(new Shrub(handler, 100,364, "D"));
 		LoadWorld(path);
+		for(int i = 0; i < 60; i++){
+			entityManager.addEntity(new Rock1(handler, i*54-32,0, "D"));
+		}
 		
 		entityManager.getPlayer().setX(spawnX);
 		entityManager.getPlayer().setY(spawnY);

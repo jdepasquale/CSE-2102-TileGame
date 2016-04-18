@@ -48,10 +48,6 @@ public class Assets {
 	public static BufferedImage[] chest;
 	public static BufferedImage tree;
 	
-	
-	
-	
-	
 	public static BufferedImage ice1;
 	public static BufferedImage sand;
 	public static BufferedImage stoneWall;
@@ -68,8 +64,13 @@ public class Assets {
 	public static BufferedImage sign;
 	public static BufferedImage shrub;
 	
-
+	public static BufferedImage pauseScreenImage;
+	public static BufferedImage mainMenuImage;
+	
 	public static void init(){
+		
+		pauseScreenImage = ImageLoader.loadImage("/textures/PauseScreen.png");
+		mainMenuImage = ImageLoader.loadImage("/textures/MainMenu.png");
 		
 		SpriteSheet sheet2 = new SpriteSheet(ImageLoader.loadImage("/textures/ss2.png"));
 		//Tiles

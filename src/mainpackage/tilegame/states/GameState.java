@@ -21,7 +21,9 @@ public class GameState extends State {
 	public void update() {
 		world.update();
 	
-		
+		if(handler.getKeyManager().p){
+			State.setState(handler.getGame().getPauseState());
+		}
 		
 	}
 
