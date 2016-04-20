@@ -63,15 +63,35 @@ public class Assets {
 	public static BufferedImage rock2;
 	public static BufferedImage sign;
 	public static BufferedImage shrub;
+	public static BufferedImage greyKey;
+	public static BufferedImage goldKey;
+	
+	public static BufferedImage[] signs; // array of signs (not animation)
 	
 	public static BufferedImage pauseScreenImage;
 	public static BufferedImage mainMenuImage;
+	public static BufferedImage gameOverImage;
+	public static BufferedImage winImage;
+	public static BufferedImage inventoryImage;
+	public static BufferedImage newItemImage;
 
 	
 	public static void init(){
 		
 		pauseScreenImage = ImageLoader.loadImage("/textures/PauseScreen.png");
 		mainMenuImage = ImageLoader.loadImage("/textures/MainMenu.png");
+		
+		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/signs.png"));
+		signs = new BufferedImage[8];// if number of signs changes change array size
+		for(int i =0; i<8; i++){
+			signs[i] = sheet.crop(i*480, 0, 480, 480);
+		}
+		gameOverImage = sheet.crop(0,535, 480, 480);
+		winImage = sheet.crop(488,535, 480, 480);
+		inventoryImage = sheet.crop(972,535, 480, 480);
+		newItemImage = sheet.crop(1470,535, 400, 72);
+		
+		
 		
 		SpriteSheet sheet2 = new SpriteSheet(ImageLoader.loadImage("/textures/ss2.png"));
 		//Tiles
@@ -169,6 +189,9 @@ public class Assets {
 		healthStat = sheet2.crop(0, 130 + 1, 16, 16);
 		
 		energyOre = sheet2.crop(16, 130, 16, 16);
+		
+		greyKey = sheet2.crop(16, 146, 16, 8);
+		goldKey = sheet2.crop(16, 154, 16, 8);
 		
 		chest = new BufferedImage[7];
 		for(int i = 0; i<6; i++){

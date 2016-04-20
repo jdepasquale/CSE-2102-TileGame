@@ -15,11 +15,12 @@ public abstract class Creature extends Entity{
 	protected float speed;
 	protected float xMove;
 	protected float yMove;
-	
+	protected String lastAnimDirection;
 	
 
 	public Creature(Handler handler, float x, float y, int width, int height, String lastAnimDirection) {
-		super(handler, x, y, width, height, lastAnimDirection); //X & Y extended from Entity class
+		super(handler, x, y, width, height); //X & Y extended from Entity class
+		this.lastAnimDirection = lastAnimDirection;
 		health = DEFAULT_HEALTH;
 		speed = DEFAULT_SPEED;
 		
@@ -121,6 +122,12 @@ public abstract class Creature extends Entity{
 	public void setSpeed(float speed) {
 		this.speed = speed;
 	}
+	
+	public String getLastAnimDirection() {
+		return lastAnimDirection;
+	}
 
-
+	public void setLastAnimDirection(String lastAnimDirection) {
+		this.lastAnimDirection = lastAnimDirection;
+	}
 }

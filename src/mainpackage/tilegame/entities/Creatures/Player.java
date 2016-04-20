@@ -1,6 +1,8 @@
 package mainpackage.tilegame.entities.Creatures;
 
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import mainpackage.tilegame.Handler;
 import mainpackage.tilegame.gfx.Animation;
@@ -26,11 +28,16 @@ public class Player extends Creature {
 		//sets starting location and creature size 
 		super(handler, x, y, (Creature.DEFAULT_CREATURE_WIDTH ), Creature.DEFAULT_CREATURE_HEIGHT, lastAnimDirection);
 		
-		// need to make these in relation to the player width/ height
+		// these should be in relation to the player width/ height
 		collisionBounds.x = 6*2; 
 		collisionBounds.y = 18*2; 
 		collisionBounds.width = 24; 
 		collisionBounds.height = 23;
+		
+		interactionBox.x = 0; 
+		interactionBox.y = 0; 
+		interactionBox.width = width; 
+		interactionBox.height = height;
 		
 		//Animations
 		downAnim = new Animation(250, Assets.playerV1D);
@@ -90,11 +97,16 @@ public class Player extends Creature {
 	public void render(Graphics g) {
 		g.drawImage(getCurrentAnimationFrame(), (int)(x - handler.getGameCamera().getxOffset()), (int)(y- handler.getGameCamera().getyOffset()), width, height, null);
 		
-	/* collision rectangle	
+	/*//collision rectangle
 		g.setColor(Color.red);
 		g.fillRect((int)(x + collisionBounds.x - handler.getGameCamera().getxOffset()),
 				(int) (y + collisionBounds.y - handler.getGameCamera().getyOffset()),
 				collisionBounds.width, collisionBounds.height);
+	//player interaction box
+		g.setColor(Color.red);
+		g.fillRect((int)(x + interactionBox.x - handler.getGameCamera().getxOffset()),
+				(int) (y + interactionBox.y - handler.getGameCamera().getyOffset()),
+				interactionBox.width, interactionBox.height);
 	*/
 	}
 	

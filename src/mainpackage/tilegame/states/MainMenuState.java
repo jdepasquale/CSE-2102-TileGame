@@ -1,6 +1,5 @@
 package mainpackage.tilegame.states;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import mainpackage.tilegame.Handler;
 import mainpackage.tilegame.gfx.Assets;
@@ -18,7 +17,7 @@ public class MainMenuState extends State {
 		System.out.println(handler.getMouseManager().getMouseX() + "   " + handler.getMouseManager().getMouseY() );
 		*/
 		//switch to game state if left and right mouse button pressed
-		if(handler.getKeyManager().enter || handler.getMouseManager().isLeftPressed() && handler.getMouseManager().isRightPressed()){
+		if(handler.getKeyManager().enter){
 			State.setState(handler.getGame().getGameState());
 		}
 	}

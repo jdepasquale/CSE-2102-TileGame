@@ -15,21 +15,20 @@ public abstract class Entity {
 	protected int height;
 	//protected - private but accessible by class that extend the entity class
 	protected Rectangle collisionBounds; 
-	
-	protected String lastAnimDirection;
+	protected Rectangle interactionBox; 
 	
 	
 
 
-	public Entity(Handler handler, float x, float y, int width, int height, String lastAnimDirection){ 
+	public Entity(Handler handler, float x, float y, int width, int height){ 
 		this.handler = handler;
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
-		this.lastAnimDirection = lastAnimDirection;
 		
 		collisionBounds = new Rectangle(0, 0, width, height);
+		interactionBox = new Rectangle(0, 0, width, height);
 	}
 	
 	public abstract void update();
@@ -52,6 +51,14 @@ public abstract class Entity {
 		return new Rectangle ((int)(x + collisionBounds.x + xOffset), (int) (y + collisionBounds.y + yOffset), collisionBounds.width, collisionBounds.height);
 	}
 	
+
+	public Rectangle getInteractionBox(float xOffset, float yOffset) {
+		return new Rectangle ((int)(x + interactionBox.x + xOffset), (int) (y + interactionBox.y + yOffset), interactionBox.width, interactionBox.height);
+	}
+
+	public void setInteractionBox(Rectangle interactionBox) {
+		this.interactionBox = interactionBox;
+	}
 
 	public float getX() {
 		return x;
@@ -83,14 +90,6 @@ public abstract class Entity {
 
 	public void setHeight(int height) {
 		this.height = height;
-	}
-	
-	public String getLastAnimDirection() {
-		return lastAnimDirection;
-	}
-
-	public void setLastAnimDirection(String lastAnimDirection) {
-		this.lastAnimDirection = lastAnimDirection;
 	}
 	
 }

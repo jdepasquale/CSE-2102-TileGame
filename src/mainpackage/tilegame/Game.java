@@ -37,31 +37,89 @@ public class Game implements Runnable {
 	private State gameState; //declare gameState a state
 	private State mainMenuState; 
 	private State pauseState;
+	private State currentState;
+	private State winState;
+	private State signState;
+	private State gameOverState;
+	private State inventoryState;
 	
 	public State getGameState() {
+		currentState = gameState;
 		return gameState;
 	}
 
 	public State getMainMenuState() {
+		currentState = mainMenuState;
 		return mainMenuState;
 	}
 
+	public State getWinStae() {
+		return winState;
+	}
+
+	public void setWinState(State winState) {
+		this.winState = winState;
+	}
+  
+	public State getSignState() {
+		currentState = signState;
+		return signState;
+	}
+
+	public void setSignState(State signState) {
+		
+		//this.signState.changeSign(signNumber);
+		currentState = signState;
+		this.signState = signState;
+	}
+
+	public State getGameOverState() {
+		return gameOverState;
+	}
+
+	public void setGameOverState(State gameOverState) {
+		this.gameOverState = gameOverState;
+	}
+
+	public State getInventoryState() {
+		currentState = inventoryState;
+		return inventoryState;
+	}
+
+	public void setInventoryState(State inventoryState) {
+		currentState = inventoryState;
+		this.inventoryState = inventoryState;
+	}
+
 	public State getPauseState() {
+		
 		return pauseState;
 	}
 
 
-	public void setGameState(State gameState) {
-		this.gameState = gameState;
+	public State getCurrentState() {
+		return currentState;
 	}
-
+	/*
+	public void setCurrentState(State currentState) {
+		this.currentState = currentState;
+	}
+*/
+	public void setGameState(State gameState) {
+		currentState = gameState;
+		this.gameState = gameState;
+		
+	}
+	
 
 	public void setMainMenuState(State mainMenuState) {
+		currentState = mainMenuState;
 		this.mainMenuState = mainMenuState;
 	}
 
 
 	public void setPauseState(State pauseState) {
+		
 		this.pauseState = pauseState;
 	}
 	

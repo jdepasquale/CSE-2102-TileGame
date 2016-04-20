@@ -8,8 +8,8 @@ import mainpackage.tilegame.tiles.Tile;
 
 public class Tree extends StaticEntity{
 	
-	public Tree(Handler handler, float x, float y, String lastAnimDirection ){
-		super(handler, x, y, Tile.TILEWIDTH*4, (Tile.TILEHEIGHT *4), lastAnimDirection);
+	public Tree(Handler handler, float x, float y){
+		super(handler, x, y, Tile.TILEWIDTH*4, (Tile.TILEHEIGHT *4));
 		
 		collisionBounds.x = 100;
 		collisionBounds.y = (int) (height *2/3f + 12);
