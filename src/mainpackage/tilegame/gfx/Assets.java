@@ -46,6 +46,7 @@ public class Assets {
 	public static BufferedImage[] fireR;
 	public static BufferedImage[] fireL;
 	public static BufferedImage[] chest;
+	public static BufferedImage[] goldChest;
 	public static BufferedImage tree;
 	
 	public static BufferedImage ice1;
@@ -61,6 +62,7 @@ public class Assets {
 	public static BufferedImage iceberg;
 	public static BufferedImage rock1;
 	public static BufferedImage rock2;
+	public static BufferedImage sandMound;
 	public static BufferedImage sign;
 	public static BufferedImage shrub;
 	public static BufferedImage greyKey;
@@ -195,7 +197,11 @@ public class Assets {
 		
 		chest = new BufferedImage[7];
 		for(int i = 0; i<6; i++){
-			chest[i] = sheet2.crop(0, 166, 22, 20);
+			chest[i] = sheet2.crop(i*20, 188, 22, 20);
+		}
+		goldChest = new BufferedImage[7];
+		for(int i = 0; i<6; i++){
+			chest[i] = sheet2.crop(i*20, 166, 22, 20);
 		}
 		tree = sheet2.crop(5*width, 0, width*2, height*2);
 		
@@ -204,6 +210,7 @@ public class Assets {
 		rock2 = sheet2.crop(width*9, 0, width, height);
 		sign = sheet2.crop(width*13, 0, width, height);
 		shrub = sheet2.crop(width*13, height, width, height);
+		sandMound = sheet2.crop(width*14, height, width, height);
 		
 		//Player		
 		SpriteSheet players = new SpriteSheet(ImageLoader.loadImage("/textures/players.png"));
