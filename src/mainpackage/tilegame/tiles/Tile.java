@@ -15,10 +15,9 @@ public class Tile {
 	public static Tile Muddy1Tile = new Muddy1Tile(4);
 	public static Tile Muddy2Tile = new Muddy2Tile(5);
 	public static Tile MudTile = new MudTile(6);
-	public static Tile StoneWallTile = new StoneWallTile(7);
-	public static Tile WaterTile = new WaterTile(7);
+	public static Tile BeachTile = new BeachTile(7);
 	public static Tile DirtTile = new DirtTile(8);
-	public static Tile Water1Tile = new StoneWallTile(9);
+	public static Tile WaterTile = new WaterTile(9);
 	public static Tile Water2Tile = new Water2Tile(10);
 	public static Tile WoodTile = new WoodTile(11);
 	public static Tile Ice1Tile = new Ice1Tile(12);

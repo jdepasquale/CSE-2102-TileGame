@@ -8,5 +8,8 @@ public class Ice2Tile extends Tile {
 		super(Assets.ice2, id);
 	
 	}
-
+	@Override
+	public boolean isSolid(){ //id rather call this is walkable and return false, this would change collisions though...
+		return true; //you can not walk through  this tile
+	}
 }

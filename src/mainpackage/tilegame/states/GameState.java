@@ -1,6 +1,5 @@
 package mainpackage.tilegame.states;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 

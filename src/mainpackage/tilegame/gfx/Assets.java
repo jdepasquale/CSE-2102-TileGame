@@ -50,7 +50,7 @@ public class Assets {
 	
 	public static BufferedImage ice1;
 	public static BufferedImage sand;
-	public static BufferedImage stoneWall;
+	public static BufferedImage beach;
 	public static BufferedImage ice2;
 	public static BufferedImage snow; 
 	public static BufferedImage mud;
@@ -106,13 +106,13 @@ public class Assets {
 		ice1 = sheet2.crop(width*7, height, width, height);
 		ice2 = sheet2.crop(width*8, height, width, height);
 		snow = sheet2.crop(width*9, height, width, height);
-		sand = sheet2.crop(width*9, height, width, height);
+		sand = sheet2.crop(width*10, height, width, height);
 		muddy1 = sheet2.crop(width*10, 0, width, height);
 		muddy2 = sheet2.crop(width*11, 0, width, height);
 		mud = sheet2.crop(width*12, 0, width, height);
 		bridgeL = sheet2.crop(width*11, height, width, height);
 		bridgeR = sheet2.crop(width*12, height, width, height);
-		stoneWall = sheet2.crop(width*14, 0, width, height);
+		beach = sheet2.crop(width*14, 0, width, height);
 		
 	
 		//Enemy

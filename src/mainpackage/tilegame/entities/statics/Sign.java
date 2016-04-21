@@ -1,8 +1,6 @@
 package mainpackage.tilegame.entities.statics;
 
-import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Rectangle;
 
 import mainpackage.tilegame.Handler;
 import mainpackage.tilegame.gfx.Assets;
