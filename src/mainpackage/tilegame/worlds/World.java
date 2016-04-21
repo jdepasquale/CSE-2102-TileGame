@@ -9,6 +9,7 @@ import mainpackage.tilegame.entities.Creatures.Player;
 import mainpackage.tilegame.entities.statics.Iceberg;
 import mainpackage.tilegame.entities.statics.Rock1;
 import mainpackage.tilegame.entities.statics.Rock2;
+import mainpackage.tilegame.entities.statics.SandMound;
 import mainpackage.tilegame.entities.statics.Shrub;
 import mainpackage.tilegame.entities.statics.Sign;
 import mainpackage.tilegame.entities.statics.Tree;
@@ -44,14 +45,14 @@ public class World {
 		for(int i = 0; i <signEntities.size(); i++){
 			entityManager.addEntity(signEntities.get(i));
 		}
+		entityManager.addEntity(new SandMound(handler, 1216,2122));
 		
 		
 		
-		LoadWorld(path);
 		for(int i = 0; i < 60; i++){
 			entityManager.addEntity(new Rock1(handler, i*54-32,0));
 		}
-		
+		LoadWorld(path);
 		entityManager.getPlayer().setX(spawnX);
 		entityManager.getPlayer().setY(spawnY);
 		
