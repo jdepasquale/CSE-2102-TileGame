@@ -32,7 +32,7 @@ public class InventoryState extends State{
 	public void render(Graphics g) {
 		// TODO Auto-generated method stub
 		//change to InventoryImage
-		g.drawImage(Assets.pauseScreenImage, 0, 0, null);
+		g.drawImage(Assets.inventoryImage, 0, 0, null);
 		//display inventory
 		//for int i; i< inventory.size(); i++)
 		// g.draw(itemNumber

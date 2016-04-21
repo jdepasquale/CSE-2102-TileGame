@@ -1,5 +1,6 @@
 package mainpackage.tilegame.states;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
@@ -37,10 +38,15 @@ public class GameState extends State {
 			for(int i =0; i < handler.getWorld().getSignEntities().size(); i++ )
 				if(checkInteractionBox(handler.getWorld().getSignEntities().get(i).getInteractionBox(handler.getWorld().getEntityManager().getPlayer().getX(), handler.getWorld().getEntityManager().getPlayer().getY()))){
 					
-					State.setState( new SignState(handler, handler.getWorld().getSignEntities().get(i).getSignNumber()));
+					State.setState(new SignState(handler, handler.getWorld().getSignEntities().get(i).getSignNumber()));
 				}
 		}
-		
+		for (int i =0; i < handler.getWorld().getRedBlobEntities().size(); i++ )	
+		if(checkInteractionBox(handler.getWorld().getRedBlobEntities().get(i).getInteractionBox(handler.getWorld().getEntityManager().getPlayer().getX(), handler.getWorld().getEntityManager().getPlayer().getY()))){
+			//check if its been x amount of time
+			handler.getWorld().getEntityManager().getPlayer().setHealth(handler.getWorld().getEntityManager().getPlayer().getHealth()-1);
+			//set lastHealthdroptime = system time milisec
+		}
 		
 		
 	}
@@ -56,7 +62,10 @@ public class GameState extends State {
 	@Override
 	public void render(Graphics g) {
 		world.render(g);
-		
+		/*
+		g.setColor(Color.RED);
+		g.fillRect(360,20,100 , 20);
+		*/
 	}
 	
 	

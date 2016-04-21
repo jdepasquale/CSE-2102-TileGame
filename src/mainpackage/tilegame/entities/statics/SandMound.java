@@ -26,7 +26,7 @@ public class SandMound extends StaticEntity{
 	@Override
 	public void render(Graphics g) {
 	g.drawImage(Assets.sandMound, (int) (x - handler.getGameCamera().getxOffset()),(int)( y - handler.getGameCamera().getyOffset()), width, height, null);
-		
+
 	}
 	
 }

@@ -23,8 +23,7 @@ public class GameOverState extends State{
 	@Override
 	public void render(Graphics g) {
 		// TODO Auto-generated method stub
-		//change to gameOverImage
-		g.drawImage(Assets.pauseScreenImage, 0, 0, null);
+		g.drawImage(Assets.gameOverImage, 0, 0, null);
 	}
 
 }

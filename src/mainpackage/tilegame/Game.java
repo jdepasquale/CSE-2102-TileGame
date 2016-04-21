@@ -7,11 +7,14 @@ import mainpackage.tilegame.gfx.Assets;
 import mainpackage.tilegame.gfx.GameCamera;
 import mainpackage.tilegame.input.KeyManager;
 import mainpackage.tilegame.input.MouseManager;
-
+import mainpackage.tilegame.states.GameOverState;
 import mainpackage.tilegame.states.GameState;
+import mainpackage.tilegame.states.InventoryState;
 import mainpackage.tilegame.states.MainMenuState;
 import mainpackage.tilegame.states.PauseState;
+import mainpackage.tilegame.states.SignState;
 import mainpackage.tilegame.states.State;
+import mainpackage.tilegame.states.WinState;
 
 public class Game implements Runnable {
 	
@@ -161,6 +164,11 @@ public class Game implements Runnable {
 		gameState = new GameState(handler); //initialize gameState as a GameState
 		mainMenuState = new MainMenuState(handler);
 		pauseState = new PauseState(handler);
+		currentState = mainMenuState;
+		winState = new WinState(handler);
+		gameOverState = new GameOverState(handler);
+		inventoryState = new InventoryState(handler);
+		
 		
 		State.setState(mainMenuState); // call this anywhere to set state.
 	}

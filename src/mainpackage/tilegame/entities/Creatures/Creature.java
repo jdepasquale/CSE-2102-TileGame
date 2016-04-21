@@ -6,7 +6,7 @@ import mainpackage.tilegame.tiles.Tile;
 
 public abstract class Creature extends Entity{
 	
-	public static final int DEFAULT_HEALTH = 10;
+	public static final int DEFAULT_HEALTH = 4;
 	public static final float DEFAULT_SPEED = 3.5f;
 	public static final int DEFAULT_CREATURE_WIDTH = 24*2; // Default creature size
 	public static final int DEFAULT_CREATURE_HEIGHT = 30*2;

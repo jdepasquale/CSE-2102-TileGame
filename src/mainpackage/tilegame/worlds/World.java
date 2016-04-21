@@ -6,10 +6,13 @@ import java.util.ArrayList;
 import mainpackage.tilegame.Handler;
 import mainpackage.tilegame.entities.EntityManager;
 import mainpackage.tilegame.entities.Creatures.Player;
+import mainpackage.tilegame.entities.Creatures.RedBlob;
+import mainpackage.tilegame.entities.statics.HealthBar;
 import mainpackage.tilegame.entities.statics.Iceberg;
 import mainpackage.tilegame.entities.statics.Rock1;
 import mainpackage.tilegame.entities.statics.Rock2;
 import mainpackage.tilegame.entities.statics.SandMound;
+import mainpackage.tilegame.entities.statics.SandStone;
 import mainpackage.tilegame.entities.statics.Shrub;
 import mainpackage.tilegame.entities.statics.Sign;
 import mainpackage.tilegame.entities.statics.Tree;
@@ -26,6 +29,7 @@ public class World {
 	//Entities
 	private EntityManager entityManager;
 	private ArrayList<Sign> signEntities;
+	private ArrayList<RedBlob> redBlobEntities;
 	//private ArrayList<Chest> chestEntities;
 	
 	
@@ -39,19 +43,34 @@ public class World {
 		//entityManager.addEntity(new Shrub(handler, 100,300));
 		//entityManager.addEntity(new Shrub(handler, 151,300));
 		//entityManager.addEntity(new Shrub(handler, 100,332));
-		Sign sign0 = new Sign(handler, 100,364, 0);
+		
 		signEntities = new ArrayList<Sign>();
-		signEntities.add(sign0);
+		signEntities.add(new Sign(handler, 100,364, 0));
+		
+		
 		for(int i = 0; i <signEntities.size(); i++){
 			entityManager.addEntity(signEntities.get(i));
 		}
 		entityManager.addEntity(new SandMound(handler, 1216,2122));
-		
+		entityManager.addEntity(new SandStone(handler, 1216,2022));
+		entityManager.addEntity(new SandStone(handler, 1184,1990));
 		
 		
 		for(int i = 0; i < 60; i++){
 			entityManager.addEntity(new Rock1(handler, i*54-32,0));
 		}
+		
+		
+		
+		redBlobEntities = new ArrayList<RedBlob>();
+		redBlobEntities.add(new RedBlob(handler, 1300, 920, "D"));
+		for(int i = 0; i <redBlobEntities.size(); i++){
+			entityManager.addEntity(redBlobEntities.get(i));
+		}
+		
+		
+		
+		entityManager.addEntity(new HealthBar(handler, 0,0));
 		LoadWorld(path);
 		entityManager.getPlayer().setX(spawnX);
 		entityManager.getPlayer().setY(spawnY);
@@ -65,6 +84,9 @@ public class World {
 	
 	public ArrayList<Sign> getSignEntities() {
 		return signEntities;
+	}
+	public ArrayList<RedBlob> getRedBlobEntities() {
+		return redBlobEntities;
 	}
 
 	public void update(){

@@ -11,11 +11,10 @@ public class Rock1 extends StaticEntity{
 	public Rock1(Handler handler, float x, float y){
 		super(handler, x, y, Tile.TILEWIDTH, (Tile.TILEHEIGHT ));
 		
-		collisionBounds.x = 0;
-		collisionBounds.y = 0;
-		collisionBounds.width = width ;
-		collisionBounds.height = height ;
-	
+		collisionBounds.x = width/8;
+		collisionBounds.y = height/2;
+		collisionBounds.width = width/4*3;
+		collisionBounds.height = (height)/2;
 	}
 
 	@Override

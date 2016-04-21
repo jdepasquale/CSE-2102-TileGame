@@ -9,7 +9,9 @@ public class Assets {
 	
 	private static final int widthPlayers = 24; // width of tile in sheet
 	private static final int heightPlayers = 30; // height of tile in sheet
-			
+	
+	private static final int widthRedBlob = 16; // width of tile in sheet
+	private static final int heightRedBlob = 24; // height of tile in sheet
 	//V#-Version #, D-Down, U-Up, R-Right,L-Left, S-Standing,
 	
 	public static BufferedImage[] playerV1D; //animations for walking
@@ -35,12 +37,12 @@ public class Assets {
 	public static BufferedImage[] lightningR;
 	public static BufferedImage[] lightningL;
 	public static BufferedImage[] health;
-	public static BufferedImage healthStat;
+	public static BufferedImage[] healthBar;
 	public static BufferedImage energyOre;
-	public static BufferedImage[] enemy1D;
-	public static BufferedImage[] enemy1U;
-	public static BufferedImage[] enemy1L;
-	public static BufferedImage[] enemy1R;
+	public static BufferedImage[] redBlobD;
+	public static BufferedImage[] redBlobU;
+	public static BufferedImage[] redBlobL;
+	public static BufferedImage[] redBlobR;
 	public static BufferedImage[] fireD;
 	public static BufferedImage[] fireU;
 	public static BufferedImage[] fireR;
@@ -48,6 +50,7 @@ public class Assets {
 	public static BufferedImage[] chest;
 	public static BufferedImage[] goldChest;
 	public static BufferedImage tree;
+
 	
 	public static BufferedImage ice1;
 	public static BufferedImage sand;
@@ -63,6 +66,7 @@ public class Assets {
 	public static BufferedImage rock1;
 	public static BufferedImage rock2;
 	public static BufferedImage sandMound;
+	public static BufferedImage sandStone;
 	public static BufferedImage sign;
 	public static BufferedImage shrub;
 	public static BufferedImage greyKey;
@@ -118,24 +122,24 @@ public class Assets {
 		
 	
 		//Enemy
-		enemy1D = new BufferedImage[5];
+		redBlobD = new BufferedImage[5];
 		for(int i=0; i<5;i++){
-			enemy1D[i] = sheet2.crop(i*16, height*2, 16, 24);
+			redBlobD[i] = sheet2.crop(i*16, height*2, 16, 24);
 		}
 		
-		enemy1U = new BufferedImage[5]; 
+		redBlobU = new BufferedImage[5]; 
 		for(int i=0; i<5;i++){
-			enemy1U[i] = sheet2.crop((i*16)+80, height*2, 16, 24);
+			redBlobU[i] = sheet2.crop((i*16)+80, height*2, 16, 24);
 		}
 		
-		enemy1L = new BufferedImage[5];
+		redBlobL = new BufferedImage[5];
 		for(int i=0; i<5;i++){
-			enemy1L[i] = sheet2.crop(i*16, (height*2) + 24, 16, 24);
+			redBlobL[i] = sheet2.crop(i*16, (height*2) + 24, 16, 24);
 		}
 		
-		enemy1R = new BufferedImage[5];
+		redBlobR = new BufferedImage[5];
 		for(int i=0; i<5;i++){
-			enemy1D[i] = sheet2.crop((i*16)+80, (height*2) + 24, 16, 24);
+			redBlobR[i] = sheet2.crop((i*16)+80, (height*2) + 24, 16, 24);
 		}
 		
 		//Enemy attack animation
@@ -188,7 +192,11 @@ public class Assets {
 			health[i] = sheet2.crop(0, 130 + i, 16, 16);
 		}
 		
-		healthStat = sheet2.crop(0, 130 + 1, 16, 16);
+		healthBar = new BufferedImage[4];
+		for(int i = 0; i< 4; i++){
+			healthBar[i] = sheet2.crop(width*7, height*2 +60 - 20*i, 100, 20);
+		}
+		
 		
 		energyOre = sheet2.crop(16, 130, 16, 16);
 		
@@ -211,6 +219,7 @@ public class Assets {
 		sign = sheet2.crop(width*13, 0, width, height);
 		shrub = sheet2.crop(width*13, height, width, height);
 		sandMound = sheet2.crop(width*14, height, width, height);
+		sandStone = sheet2.crop(width*14, height, width, height - 5);
 		
 		//Player		
 		SpriteSheet players = new SpriteSheet(ImageLoader.loadImage("/textures/players.png"));

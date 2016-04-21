@@ -17,14 +17,14 @@ public class WinState extends State{
 		if(handler.getKeyManager().enter){
 			handler.getGame().setGameState(new GameState(handler));
 			State.setState(new MainMenuState(handler));
+			
 		}
 	}
 
 	@Override
 	public void render(Graphics g) {
 		// TODO Auto-generated method stub
-		//change to WinImage
-		g.drawImage(Assets.pauseScreenImage, 0, 0, null);
+		g.drawImage(Assets.winImage, 0, 0, null);
 	}
 
 }
