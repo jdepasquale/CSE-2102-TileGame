@@ -3,7 +3,9 @@ package mainpackage.tilegame.entities.statics;
 import java.awt.Graphics;
 
 import mainpackage.tilegame.Handler;
-import mainpackage.tilegame.gfx.Assets;
+import mainpackage.tilegame.Audio.AudioClips;
+import mainpackage.tilegame.graphics.Assets;
+import mainpackage.tilegame.states.GameOverState;
 import mainpackage.tilegame.states.State;
 import mainpackage.tilegame.tiles.Tile;
 
@@ -23,15 +25,16 @@ public class HealthBar extends StaticEntity{
 	
 	@Override
 	public void update() {
-		currentHealth = handler.getWorld().getEntityManager().getPlayer().getHealth();
-		if(currentHealth <= 1 ){
-			State.setState(handler.getGame().getGameOverState());
+		currentHealth = handler.getWorld().getEntityManager().getPlayer().getHealth() +1;
+		if(currentHealth  == 1 ){
+			AudioClips.fg.stop();
+			State.setState(new GameOverState(handler, false));
 		}
 	}
 
 	@Override
 	public void render(Graphics g) {
-		g.drawImage(Assets.healthBar[handler.getWorld().getEntityManager().getPlayer().getHealth()-1], 375,5, null);
+		g.drawImage(Assets.healthBar[handler.getWorld().getEntityManager().getPlayer().getHealth() ], 375,5, null);
 		//handler.getWorld().getEntityManager().getPlayer().getHealth()-1
 	}
 }

@@ -1,6 +1,6 @@
 package mainpackage.tilegame;
 
-import mainpackage.tilegame.gfx.GameCamera;
+import mainpackage.tilegame.graphics.GameCamera;
 import mainpackage.tilegame.input.KeyManager;
 import mainpackage.tilegame.input.MouseManager;
 import mainpackage.tilegame.worlds.World;

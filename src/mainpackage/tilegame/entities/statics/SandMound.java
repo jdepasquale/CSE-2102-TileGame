@@ -3,7 +3,7 @@ package mainpackage.tilegame.entities.statics;
 import java.awt.Graphics;
 
 import mainpackage.tilegame.Handler;
-import mainpackage.tilegame.gfx.Assets;
+import mainpackage.tilegame.graphics.Assets;
 import mainpackage.tilegame.tiles.Tile;
 
 public class SandMound extends StaticEntity{

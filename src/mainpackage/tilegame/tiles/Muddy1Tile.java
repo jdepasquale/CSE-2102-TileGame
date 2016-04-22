@@ -1,6 +1,6 @@
 package mainpackage.tilegame.tiles;
 
-import mainpackage.tilegame.gfx.Assets;
+import mainpackage.tilegame.graphics.Assets;
 
 public class Muddy1Tile extends Tile{
 

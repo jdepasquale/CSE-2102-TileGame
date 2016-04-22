@@ -3,8 +3,8 @@ package mainpackage.tilegame.entities.Creatures;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import mainpackage.tilegame.Handler;
-import mainpackage.tilegame.gfx.Animation;
-import mainpackage.tilegame.gfx.Assets;
+import mainpackage.tilegame.graphics.Animation;
+import mainpackage.tilegame.graphics.Assets;
 
 public class Player extends Creature {
 

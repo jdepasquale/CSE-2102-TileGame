@@ -4,7 +4,7 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 
 import mainpackage.tilegame.Handler;
-import mainpackage.tilegame.gfx.Assets;
+import mainpackage.tilegame.graphics.Assets;
 
 public class InventoryState extends State{
 
@@ -22,15 +22,17 @@ public class InventoryState extends State{
 
 	@Override
 	public void update() {
-		if(handler.getKeyManager().s ){
-			handler.getGame().setGameState(new GameState(handler));
-			State.setState(new MainMenuState(handler));
+		if(handler.getKeyManager().enter ){
+			State.setState(handler.getGame().getGameState());
+		}
+		
+		if(handler.getKeyManager().p){
+			State.setState(handler.getGame().getPauseState());
 		}
 	}
 
 	@Override
 	public void render(Graphics g) {
-		// TODO Auto-generated method stub
 		//change to InventoryImage
 		g.drawImage(Assets.inventoryImage, 0, 0, null);
 		//display inventory

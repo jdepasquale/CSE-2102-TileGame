@@ -1,7 +1,9 @@
 package mainpackage.tilegame.states;
 
+import java.applet.AudioClip;
 import java.awt.Graphics;
 import mainpackage.tilegame.Handler;
+import mainpackage.tilegame.Audio.AudioClips;
 
 // states are game screens such as main menu, settings, how to, and game
 
@@ -26,6 +28,11 @@ public abstract class State {
 	public State(Handler handler){
 		this.handler = handler;
 	}
+	
+	public void play(AudioClip ac){
+		ac.loop();
+	}
+	
 	
 	public abstract void update();
 	

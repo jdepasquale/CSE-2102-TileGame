@@ -45,8 +45,13 @@ public class World {
 		//entityManager.addEntity(new Shrub(handler, 100,332));
 		
 		signEntities = new ArrayList<Sign>();
-		signEntities.add(new Sign(handler, 100,364, 0));
-		
+		signEntities.add(new Sign(handler, 1080, 870, 0));
+		/*signEntities.add(new Sign(handler, 100,200, 1));
+		signEntities.add(new Sign(handler, 100,750, 2));
+		signEntities.add(new Sign(handler, 100,750, 3));
+		*/
+		signEntities.add(new Sign(handler, 100,450, 4));
+		signEntities.add(new Sign(handler, 1480, 1020, 8));
 		
 		for(int i = 0; i <signEntities.size(); i++){
 			entityManager.addEntity(signEntities.get(i));
@@ -63,7 +68,7 @@ public class World {
 		
 		
 		redBlobEntities = new ArrayList<RedBlob>();
-		redBlobEntities.add(new RedBlob(handler, 1300, 920, "D"));
+		redBlobEntities.add(new RedBlob(handler, 1500, 920, "D"));
 		for(int i = 0; i <redBlobEntities.size(); i++){
 			entityManager.addEntity(redBlobEntities.get(i));
 		}

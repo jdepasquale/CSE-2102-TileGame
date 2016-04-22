@@ -3,7 +3,7 @@ package mainpackage.tilegame.states;
 import java.awt.Graphics;
 
 import mainpackage.tilegame.Handler;
-import mainpackage.tilegame.gfx.Assets;
+import mainpackage.tilegame.graphics.Assets;
 
 public class SignState extends State{
 

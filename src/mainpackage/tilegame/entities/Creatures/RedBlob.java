@@ -4,8 +4,8 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 import mainpackage.tilegame.Handler;
-import mainpackage.tilegame.gfx.Animation;
-import mainpackage.tilegame.gfx.Assets;
+import mainpackage.tilegame.graphics.Animation;
+import mainpackage.tilegame.graphics.Assets;
 
 public class RedBlob extends Creature{
 	
@@ -26,7 +26,7 @@ public class RedBlob extends Creature{
 		interactionBox.x = -width/2; 
 		interactionBox.y = -height/2; 
 		interactionBox.width = width*2; 
-		interactionBox.height = height*2;
+		interactionBox.height = height*3/2;
 		
 		//animations 
 		downAnim = new Animation(300, Assets.redBlobD);
@@ -51,8 +51,9 @@ public class RedBlob extends Creature{
 	@Override
 	public void render(Graphics g) {
 		g.drawImage(getCurrentAnimationFrame(),(int) (x - handler.getGameCamera().getxOffset()),(int)( y - handler.getGameCamera().getyOffset()), width, height, null);
-		
 	}
+	
+	
 	private BufferedImage getCurrentAnimationFrame(){
 		
 		if(xMove < 0 ){

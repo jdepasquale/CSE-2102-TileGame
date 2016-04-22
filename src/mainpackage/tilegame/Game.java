@@ -2,9 +2,11 @@ package mainpackage.tilegame;
 
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+
+import mainpackage.tilegame.Audio.AudioClips;
 import mainpackage.tilegame.display.Display;
-import mainpackage.tilegame.gfx.Assets;
-import mainpackage.tilegame.gfx.GameCamera;
+import mainpackage.tilegame.graphics.Assets;
+import mainpackage.tilegame.graphics.GameCamera;
 import mainpackage.tilegame.input.KeyManager;
 import mainpackage.tilegame.input.MouseManager;
 import mainpackage.tilegame.states.GameOverState;
@@ -40,19 +42,19 @@ public class Game implements Runnable {
 	private State gameState; //declare gameState a state
 	private State mainMenuState; 
 	private State pauseState;
-	private State currentState;
+	private State previousState;
 	private State winState;
 	private State signState;
 	private State gameOverState;
 	private State inventoryState;
 	
 	public State getGameState() {
-		currentState = gameState;
+		previousState = gameState;
 		return gameState;
 	}
 
 	public State getMainMenuState() {
-		currentState = mainMenuState;
+		previousState = mainMenuState;
 		return mainMenuState;
 	}
 
@@ -65,14 +67,14 @@ public class Game implements Runnable {
 	}
   
 	public State getSignState() {
-		currentState = signState;
+		previousState = signState;
 		return signState;
 	}
 
 	public void setSignState(State signState) {
 		
 		//this.signState.changeSign(signNumber);
-		currentState = signState;
+		previousState = signState;
 		this.signState = signState;
 	}
 
@@ -85,12 +87,12 @@ public class Game implements Runnable {
 	}
 
 	public State getInventoryState() {
-		currentState = inventoryState;
+		previousState = inventoryState;
 		return inventoryState;
 	}
 
 	public void setInventoryState(State inventoryState) {
-		currentState = inventoryState;
+		previousState = inventoryState;
 		this.inventoryState = inventoryState;
 	}
 
@@ -100,8 +102,8 @@ public class Game implements Runnable {
 	}
 
 
-	public State getCurrentState() {
-		return currentState;
+	public State getPrevioustate() {
+		return previousState;
 	}
 	/*
 	public void setCurrentState(State currentState) {
@@ -109,14 +111,14 @@ public class Game implements Runnable {
 	}
 */
 	public void setGameState(State gameState) {
-		currentState = gameState;
+		previousState = gameState;
 		this.gameState = gameState;
 		
 	}
 	
 
 	public void setMainMenuState(State mainMenuState) {
-		currentState = mainMenuState;
+		previousState = mainMenuState;
 		this.mainMenuState = mainMenuState;
 	}
 
@@ -156,21 +158,23 @@ public class Game implements Runnable {
 		display.getCanvas().addMouseListener(mouseManager);
 		display.getCanvas().addMouseMotionListener(mouseManager);
 		Assets.init();
+		AudioClips.init();
 		
 		handler = new Handler(this);
 		gameCamera = new GameCamera(handler, 0,0); //(0,0)= no shift
 		
 		
-		gameState = new GameState(handler); //initialize gameState as a GameState
+		//gameState = new GameState(handler); //initialize gameState as a GameState
 		mainMenuState = new MainMenuState(handler);
-		pauseState = new PauseState(handler);
-		currentState = mainMenuState;
-		winState = new WinState(handler);
-		gameOverState = new GameOverState(handler);
+		pauseState = new PauseState(handler, false);
+		previousState = mainMenuState;
+		winState = new WinState(handler, false);
+		gameOverState = new GameOverState(handler, false);
 		inventoryState = new InventoryState(handler);
+		AudioClips.mT.stop();
+		AudioClips.fg.stop();
 		
-		
-		State.setState(mainMenuState); // call this anywhere to set state.
+		State.setState(new MainMenuState(handler)); // call this anywhere to set state.
 	}
 	
 

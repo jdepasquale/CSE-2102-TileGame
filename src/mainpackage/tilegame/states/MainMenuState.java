@@ -2,14 +2,18 @@ package mainpackage.tilegame.states;
 
 import java.awt.Graphics;
 import mainpackage.tilegame.Handler;
-import mainpackage.tilegame.gfx.Assets;
+import mainpackage.tilegame.Audio.AudioClips;
+import mainpackage.tilegame.graphics.Assets;
 
 public class MainMenuState extends State {
 	
 	public MainMenuState(Handler handler){
 		super(handler);
+		play(AudioClips.mT);
 	}
 
+	
+	
 	@Override
 	public void update() {
 		/*
@@ -18,7 +22,9 @@ public class MainMenuState extends State {
 		*/
 		//switch to game state if left and right mouse button pressed
 		if(handler.getKeyManager().enter){
-			State.setState(handler.getGame().getGameState());
+			
+			State.setState(new GameState(handler));
+			AudioClips.mT.stop();
 		}
 	}
 

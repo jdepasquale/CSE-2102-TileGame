@@ -3,19 +3,25 @@ package mainpackage.tilegame.states;
 import java.awt.Graphics;
 
 import mainpackage.tilegame.Handler;
-import mainpackage.tilegame.gfx.Assets;
+import mainpackage.tilegame.graphics.Assets;
 
 public class WinState extends State{
 
-	public WinState(Handler handler) {
+	private boolean pressed;
+	
+	public WinState(Handler handler, boolean pressed) {
 		super(handler);
-		
+		this.pressed = pressed;
 	}
 
 	@Override
 	public void update() {
 		if(handler.getKeyManager().enter){
+			this.pressed = true;
+		}
+		if(pressed == true && !handler.getKeyManager().enter){
 			handler.getGame().setGameState(new GameState(handler));
+			this.pressed = false;
 			State.setState(new MainMenuState(handler));
 			
 		}
