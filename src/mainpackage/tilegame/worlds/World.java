@@ -18,6 +18,7 @@ import mainpackage.tilegame.entities.statics.SandStone;
 import mainpackage.tilegame.entities.statics.Shrub;
 import mainpackage.tilegame.entities.statics.Sign;
 import mainpackage.tilegame.entities.statics.Tree;
+import mainpackage.tilegame.entities.statics.item.Item;
 import mainpackage.tilegame.tiles.Tile;
 import mainpackage.tilegame.utils.Utils;
 
@@ -33,7 +34,11 @@ public class World {
 	private ArrayList<Sign> signEntities;
 	private ArrayList<RedBlob> redBlobEntities;
 	private ArrayList<Chest> chestEntities;
-	private ArrayList<GoldChest> goldChestEntities;
+	private ArrayList<Item> itemEntities;
+	
+	
+
+
 
 	public World(Handler handler, String path){ // load world from a file
 		this.handler = handler;
@@ -49,14 +54,6 @@ public class World {
 		for(int i = 0; i <chestEntities.size(); i++){
 			entityManager.addEntity(chestEntities.get(i));
 		}
-		/*
-		goldChestEntities = new ArrayList<GoldChest>();
-		goldChestEntities.add(new GoldChest(handler, 24*64, 19*64));
-		
-		for(int i = 0; i <goldChestEntities.size(); i++){
-			entityManager.addEntity(goldChestEntities.get(i));
-		}
-		*/
 		
 		signEntities = new ArrayList<Sign>();
 		signEntities.add(new Sign(handler, 1080, 870, 0));
@@ -81,6 +78,12 @@ public class World {
 		for(int i = 0; i < 60; i++){
 			entityManager.addEntity(new Rock1(handler, i*54-32,0));
 		}
+		
+		
+		
+		
+		
+		//Maze work
 		entityManager.addEntity(new Tree(handler, 640, 640));
 		//entityManager.addEntity(new Rock1(handler, 100,160));
 		//entityManager.addEntity(new Rock2(handler, 100,500));
@@ -93,14 +96,6 @@ public class World {
 		entityManager.addEntity(new SandStone(handler, 1184,1990));
 
 
-		
-
-
-
-		
-
-
-
 		entityManager.addEntity(new HealthBar(handler, 0,0));
 		LoadWorld(path);
 		entityManager.getPlayer().setX(spawnX);
@@ -109,25 +104,7 @@ public class World {
 
 	}
 
-	public EntityManager getEntityManager() {
-		return entityManager;
-	}
-
-	public ArrayList<Sign> getSignEntities() {
-		return signEntities;
-	}
 	
-	public ArrayList<RedBlob> getRedBlobEntities() {
-		return redBlobEntities;
-	}
-	
-	public ArrayList<Chest> getChestEntities() {
-		return chestEntities;
-	}
-
-	public void update(){
-		entityManager.update();
-	}
 
 	public void render(Graphics g){
 		int xStart = (int) Math.max(0,  handler.getGameCamera().getxOffset()/Tile.TILEWIDTH); // left most rendered tile;
@@ -188,7 +165,17 @@ public class World {
 		}
 
 	}
+	
+	
+	
+	//GETTERS AND SETTERS
+	public ArrayList<Item> getItemEntities() {
+		return itemEntities;
+	}
 
+	public void setItemEntities(ArrayList<Item> itemEntities) {
+		this.itemEntities = itemEntities;
+	}
 	public int getWidth() {
 		return width;
 	}
@@ -196,7 +183,26 @@ public class World {
 	public int getHeight() {
 		return height;
 	}
+	
+	public EntityManager getEntityManager() {
+		return entityManager;
+	}
 
+	public ArrayList<Sign> getSignEntities() {
+		return signEntities;
+	}
+	
+	public ArrayList<RedBlob> getRedBlobEntities() {
+		return redBlobEntities;
+	}
+	
+	public ArrayList<Chest> getChestEntities() {
+		return chestEntities;
+	}
+
+	public void update(){
+		entityManager.update();
+	}
 
 
 }

@@ -14,6 +14,7 @@ public class Handler {
 		this.game = game;
 	}
 
+	//GETTERS&SETTERS
 	public GameCamera getGameCamera(){
 		return game.getGameCamera();
 	}

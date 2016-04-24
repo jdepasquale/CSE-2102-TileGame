@@ -46,7 +46,7 @@ public class GameState extends State {
 
 		// Check if c is pressed 
 		if(handler.getKeyManager().c){
-			//check if player collision box is near a sign's interaction box
+			//check if player is near a sign's interaction box
 			if(handler.getWorld().getEntityManager().getPlayer().getLastAnimDirection() == "U"){
 				for(int i =0; i < handler.getWorld().getSignEntities().size(); i++ )
 					if(checkInteractionBox(handler.getWorld().getSignEntities().get(i).getInteractionBox(handler.getWorld().getEntityManager().getPlayer().getX(), handler.getWorld().getEntityManager().getPlayer().getY()))){
@@ -54,17 +54,33 @@ public class GameState extends State {
 						State.setState(new SignState(handler, handler.getWorld().getSignEntities().get(i).getSignNumber()));
 					}
 			}
+			//check if player is near a chest's interaction box
 			if(handler.getWorld().getEntityManager().getPlayer().getLastAnimDirection() == "U" || handler.getWorld().getEntityManager().getPlayer().getLastAnimDirection() == "R"){
 				for(int i =0; i < handler.getWorld().getChestEntities().size(); i++ ){
 					if(checkInteractionBox(handler.getWorld().getChestEntities().get(i).getInteractionBox(handler.getWorld().getEntityManager().getPlayer().getX(), handler.getWorld().getEntityManager().getPlayer().getY()))){
 						handler.getWorld().getChestEntities().get(i).open();
-					}							
-				}
-				
+						//check player has won
+						if(playerWon()){
+							AudioClips.fg.stop();
+							State.setState( new WinState(handler, false));
+						}			
+					}			
+				}	
 			}
 
 		}
-
+		
+		//check if touching item
+		/*
+		for(int i = 0 ; i < handler.getWorld().getItemEntities().size(); i++){
+			if(checkInteractionBox(handler.getWorld().getItemEntities().get(i).getInteractionBox(handler.getWorld().getEntityManager().getPlayer().getX(), handler.getWorld().getEntityManager().getPlayer().getY()))){
+				handler.getWorld().getItemEntities().get(i).add();
+			}
+		}
+		*/
+		
+		
+		
 		// Check if being attacked
 		for (int i =0; i < handler.getWorld().getRedBlobEntities().size(); i++ ){	
 			if(checkInteractionBox(handler.getWorld().getRedBlobEntities().get(i).getInteractionBox(handler.getWorld().getEntityManager().getPlayer().getX(), handler.getWorld().getEntityManager().getPlayer().getY()))){
@@ -75,11 +91,8 @@ public class GameState extends State {
 			}
 		}
 		
-		//check player has won
-		if(playerWon()){
-			AudioClips.fg.stop();
-			State.setState( new WinState(handler, false));
-		}
+		
+		
 		
 
 	

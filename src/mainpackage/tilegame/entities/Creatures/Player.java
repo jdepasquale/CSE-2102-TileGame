@@ -22,26 +22,18 @@ public class Player extends Creature {
 	private Animation rightStandAnim;
 	private ArrayList<Item> inventory; 
 	
-	
-	
-	
-	
-	
 
 	public Player(Handler handler, float x, float y,  String lastAnimDirection) {
 		//sets starting location and creature size 
 		super(handler, x, y, (Creature.DEFAULT_CREATURE_WIDTH ), Creature.DEFAULT_CREATURE_HEIGHT, lastAnimDirection);
 		
-		// these should be in relation to the player width/ height
-		collisionBounds.x = 6*2; 
-		collisionBounds.y = 18*2; 
-		collisionBounds.width = 24; 
-		collisionBounds.height = 23;
 		
 		interactionBox.x = 0; 
 		interactionBox.y = 0; 
 		interactionBox.width = width; 
 		interactionBox.height = height;
+		
+		this.inventory = null;
 		
 		//Animations
 		downAnim = new Animation(250, Assets.playerV1D);
@@ -52,10 +44,10 @@ public class Player extends Creature {
 		leftStandAnim = new Animation(600, Assets.playerV1LS);
 		rightAnim = new Animation(100, Assets.playerV1R);
 		rightStandAnim = new Animation(600, Assets.playerV1RS);
+		
+		
 	}
-	public ArrayList<Item> getInventory() {
-		return inventory;
-	}
+
 	@Override
 	public void update() {
 		//Animations
@@ -76,27 +68,7 @@ public class Player extends Creature {
 	
 	}
 	
-	private void getInput(){
-		xMove = 0;
-		yMove = 0;
-		
-		if(handler.getKeyManager().up){
-			yMove = -speed;
-		}
-		
-		if(handler.getKeyManager().down){
-			yMove = speed;
-		}
-		
-		if(handler.getKeyManager().left){
-			xMove = -speed;
-		}
-		
-		if(handler.getKeyManager().right){
-			xMove = speed;
-		}
-		
-	}
+	
 	
 	
 
@@ -115,6 +87,32 @@ public class Player extends Creature {
 				(int) (y + interactionBox.y - handler.getGameCamera().getyOffset()),
 				interactionBox.width, interactionBox.height);
 	*/
+	}
+	
+	//GETTERS&SETTERS
+	public ArrayList<Item> getInventory() {
+		return inventory;
+	}
+	
+	private void getInput(){
+		xMove = 0;
+		yMove = 0;
+		
+		if(handler.getKeyManager().up){
+			yMove = -speed;
+		}
+		
+		if(handler.getKeyManager().down){
+			yMove = speed;
+		}
+		
+		if(handler.getKeyManager().left){
+			xMove = -speed;
+		}
+		
+		if(handler.getKeyManager().right){
+			xMove = speed;
+		}	
 	}
 	
 	private BufferedImage getCurrentAnimationFrame(){
@@ -147,6 +145,7 @@ public class Player extends Creature {
 			return downStandAnim.getCurrentFrame();
 		}
 	}
+	
 	
 
 }

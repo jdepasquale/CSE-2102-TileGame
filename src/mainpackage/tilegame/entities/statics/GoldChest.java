@@ -39,9 +39,11 @@ public class GoldChest extends Chest{
 	}
 	
 	private boolean hasKey() {
-		for(int i = 0 ; i < handler.getWorld().getEntityManager().getPlayer().getInventory().size() ; i ++){
-			if(handler.getWorld().getEntityManager().getPlayer().getInventory().get(i).getItemNum() == 0 ){
-				
+		if(handler.getWorld().getEntityManager().getPlayer().getInventory() != null){
+			for(int i = 0 ; i < handler.getWorld().getEntityManager().getPlayer().getInventory().size() ; i ++){
+				if(handler.getWorld().getEntityManager().getPlayer().getInventory().get(i).getName().equals("goldKey")){
+					return true;
+				}
 			}
 		}
 		return false;

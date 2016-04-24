@@ -90,7 +90,7 @@ public abstract class Creature extends Entity{
 		
 	}
 	
-	//Getters and setters
+	//GETTERS&SETTERS
 	public float getXMove() {
 		return xMove;
 	}

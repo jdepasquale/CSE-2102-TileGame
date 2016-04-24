@@ -48,6 +48,7 @@ public class GameCamera {
 		
 	}
 	
+	//GETTERS&SETTERS
 	public float getxOffset() {
 		return xOffset;
 	}

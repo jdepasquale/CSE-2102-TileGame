@@ -48,77 +48,6 @@ public class Game implements Runnable {
 	private State gameOverState;
 	private State inventoryState;
 	
-	public State getGameState() {
-		return gameState;
-	}
-
-	public State getPreviousState() {
-		return previousState;
-	}
-	
-	public void setPreviousState(State previousState) {
-		this.previousState = previousState;
-	}
-
-	public State getMainMenuState() {
-		return mainMenuState;
-	}
-
-	public State getWinStae() {
-		return winState;
-	}
-
-	public void setWinState(State winState) {
-		this.winState = winState;
-	}
-  
-	public State getSignState() {
-		return signState;
-	}
-
-	public void setSignState(State signState) {
-		this.signState = signState;
-	}
-
-	public State getGameOverState() {
-		return gameOverState;
-	}
-
-	public void setGameOverState(State gameOverState) {
-		this.gameOverState = gameOverState;
-	}
-
-	public State getInventoryState() {
-		return inventoryState;
-	}
-
-	public void setInventoryState(State inventoryState) {
-		this.inventoryState = inventoryState;
-	}
-
-	public State getPauseState() {
-		
-		return pauseState;
-	}
-
-
-	
-	
-	public void setGameState(State gameState) {
-		this.gameState = gameState;
-		
-	}
-	
-
-	public void setMainMenuState(State mainMenuState) {
-		this.mainMenuState = mainMenuState;
-	}
-
-
-	public void setPauseState(State pauseState) {
-		
-		this.pauseState = pauseState;
-	}
 	
 	//Input
 	private KeyManager keyManager;
@@ -141,7 +70,6 @@ public class Game implements Runnable {
 	}
 
 
-
 	private void init(){ //initializes graphics 
 		display = new Display(title, width, height);
 		display.getFrame().addKeyListener(keyManager); // add key listener to JFrame
@@ -154,21 +82,20 @@ public class Game implements Runnable {
 		
 		handler = new Handler(this);
 		gameCamera = new GameCamera(handler, 0,0); //(0,0)= no shift
-		
-		
-		//gameState = new GameState(handler); //initialize gameState as a GameState
+		//initialize gameState as a GameState
+		gameState = new GameState(handler); 
 		mainMenuState = new MainMenuState(handler);
 		pauseState = new PauseState(handler, false);
 		previousState = mainMenuState;
 		winState = new WinState(handler, false);
 		gameOverState = new GameOverState(handler, false);
 		inventoryState = new InventoryState(handler);
+		signState = new SignState(handler, 0);
 		AudioClips.mT.stop();
 		AudioClips.fg.stop();
 		
 		State.setState(new MainMenuState(handler)); // call this anywhere to set state.
 	}
-	
 
 	
 	private void update(){ //(tick) updates game screen
@@ -250,25 +177,6 @@ public class Game implements Runnable {
 		stop();// stops thread
 	}
 	
-	public KeyManager getKeyManager(){
-		return keyManager;
-	}
-	
-	public MouseManager getMouseManager(){
-		return mouseManager;
-	}
-	
-	public GameCamera getGameCamera(){
-		return gameCamera;
-	}
-	
-	public int getWidth(){
-		return width;
-	}
-	
-	public int getHeight(){
-		return height;
-	}
 	
 	public synchronized void start(){
 		if(running){
@@ -291,5 +199,92 @@ public class Game implements Runnable {
 		} 
 		
 		
+	}
+	
+	//GETTERS&SETTERS
+	public State getGameState() {
+		return gameState;
+	}
+
+	public State getPreviousState() {
+		return previousState;
+	}
+	
+	public void setPreviousState(State previousState) {
+		this.previousState = previousState;
+	}
+
+	public State getMainMenuState() {
+		return mainMenuState;
+	}
+
+	public State getWinStae() {
+		return winState;
+	}
+
+	public void setWinState(State winState) {
+		this.winState = winState;
+	}
+  
+	public State getSignState() {
+		return signState;
+	}
+
+	public void setSignState(State signState) {
+		this.signState = signState;
+	}
+
+	public State getGameOverState() {
+		return gameOverState;
+	}
+
+	public void setGameOverState(State gameOverState) {
+		this.gameOverState = gameOverState;
+	}
+
+	public State getInventoryState() {
+		return inventoryState;
+	}
+
+	public void setInventoryState(State inventoryState) {
+		this.inventoryState = inventoryState;
+	}
+
+	public State getPauseState() {
+		
+		return pauseState;
+	}
+	
+	public void setGameState(State gameState) {
+		this.gameState = gameState;
+		
+	}
+	
+	public void setMainMenuState(State mainMenuState) {
+		this.mainMenuState = mainMenuState;
+	}
+
+	public void setPauseState(State pauseState) {
+		this.pauseState = pauseState;
+	}
+	
+	public KeyManager getKeyManager(){
+		return keyManager;
+	}
+	
+	public MouseManager getMouseManager(){
+		return mouseManager;
+	}
+	
+	public GameCamera getGameCamera(){
+		return gameCamera;
+	}
+	
+	public int getWidth(){
+		return width;
+	}
+	
+	public int getHeight(){
+		return height;
 	}
 }

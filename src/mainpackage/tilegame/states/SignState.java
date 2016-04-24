@@ -32,7 +32,8 @@ public class SignState extends State{
 		g.drawImage(Assets.signs[signNumber], 0, 0, null);
 		
 	}
-
+	
+	//GETTERS&SETTERS
 	public int getSignNumber() {
 		return signNumber;
 	}

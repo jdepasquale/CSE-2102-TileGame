@@ -47,10 +47,10 @@ public abstract class Entity {
 		return false;
 	}
 	
+	//GETTERS&SETTERS
 	public Rectangle getCollisionBounds(float xOffset, float yOffset){
 		return new Rectangle ((int)(x + collisionBounds.x + xOffset), (int) (y + collisionBounds.y + yOffset), collisionBounds.width, collisionBounds.height);
 	}
-	
 
 	public Rectangle getInteractionBox(float xOffset, float yOffset) {
 		return new Rectangle ((int)(x + interactionBox.x + xOffset), (int) (y + interactionBox.y + yOffset), interactionBox.width, interactionBox.height);

@@ -31,6 +31,7 @@ public class Animation {
 		}
 	}
 	
+	//GETTERS&SETTERS
 	public BufferedImage getCurrentFrame(){
 		return frames[index];
 	}

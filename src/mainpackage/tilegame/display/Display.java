@@ -39,6 +39,7 @@ public class Display {
 		frame.pack(); // resizes window to show full canvas
 	}
 	
+	//GETTERS&SETTERS
 	public Canvas getCanvas(){
 		return canvas;
 	}

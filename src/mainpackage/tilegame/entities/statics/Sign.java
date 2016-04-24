@@ -25,11 +25,6 @@ public class Sign extends StaticEntity{
 	
 	}
 	
-	public int getSignNumber(){
-		return sn;
-	}
-	
-	
 	@Override
 	public void update() {
 		
@@ -47,6 +42,11 @@ public class Sign extends StaticEntity{
 			(int) (y + interactionBox.y - handler.getGameCamera().getyOffset()),
 			interactionBox.width, interactionBox.height);
 	*/
+	}
+	
+	//GETTERS&SETTERS
+	public int getSignNumber(){
+		return sn;
 	}
 	
 }

@@ -10,17 +10,8 @@ public abstract class State {
 	
 	//game state manager
 	private static State currentState = null;
-	// call this to change state at any point
-	public static void setState(State state){ 
-		currentState = state;
-	}
-	
-	public static State getState(){
-		return currentState;
-	}
 	
 	//CLASS
-
 	//Every state must have at least the update and render methods
 	protected Handler handler;
 	
@@ -32,11 +23,18 @@ public abstract class State {
 		ac.loop();
 	}
 	
-	
 	public abstract void update();
 	
 	public abstract void render(Graphics g); // allows state to write to screen
+
+	//GETTERS&SETTERS
+	// call this to change state at any point
+	public static void setState(State state){ 
+		currentState = state;
+	}
 	
-	
+	public static State getState(){
+		return currentState;
+	}
 
 }
