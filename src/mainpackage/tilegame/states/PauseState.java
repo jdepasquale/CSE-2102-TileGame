@@ -30,7 +30,7 @@ public class PauseState extends State{
 		}
 		if(pressed == true && !handler.getKeyManager().enter){
 			this.pressed = false;
-			State.setState(handler.getGame().getPrevioustate());
+			State.setState(handler.getGame().getPreviousState());
 		}
 	}
 

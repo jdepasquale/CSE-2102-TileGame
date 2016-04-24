@@ -124,22 +124,22 @@ public class Assets {
 		//Enemy
 		redBlobD = new BufferedImage[5];
 		for(int i=0; i<5;i++){
-			redBlobD[i] = sheet2.crop(i*16, height*2, 16, 24);
+			redBlobD[i] = sheet2.crop(i*16, height*2, widthRedBlob, heightRedBlob);
 		}
 		
 		redBlobU = new BufferedImage[5]; 
 		for(int i=0; i<5;i++){
-			redBlobU[i] = sheet2.crop((i*16)+80, height*2, 16, 24);
+			redBlobU[i] = sheet2.crop((i*16) + widthRedBlob*5, height*2, widthRedBlob, heightRedBlob);
 		}
 		
 		redBlobL = new BufferedImage[5];
 		for(int i=0; i<5;i++){
-			redBlobL[i] = sheet2.crop(i*16, (height*2) + 24, 16, 24);
+			redBlobL[i] = sheet2.crop(i*16, (height*2) + heightRedBlob, widthRedBlob, heightRedBlob);
 		}
 		
 		redBlobR = new BufferedImage[5];
 		for(int i=0; i<5;i++){
-			redBlobR[i] = sheet2.crop((i*16)+80, (height*2) + 24, 16, 24);
+			redBlobR[i] = sheet2.crop((i*16) + widthRedBlob*5, (height*2) + heightRedBlob, widthRedBlob, heightRedBlob);
 		}
 		
 		//Enemy attack animation
@@ -203,20 +203,26 @@ public class Assets {
 		greyKey = sheet2.crop(16, 146, 16, 8);
 		goldKey = sheet2.crop(16, 154, 16, 8);
 		
+		
+	
 		chest = new BufferedImage[7];
-		for(int i = 0; i<6; i++){
-			chest[i] = sheet2.crop(i*20, 188, 22, 20);
+		for(int i = 0; i<7; i++){
+			chest[i] = sheet2.crop(i*22, 188, 22, 20);
 		}
+		
+		
 		goldChest = new BufferedImage[7];
-		for(int i = 0; i<6; i++){
-			chest[i] = sheet2.crop(i*20, 166, 22, 20);
+		for(int i = 0; i<7; i++){
+			goldChest[i] = sheet2.crop(i*22, 166, 22, 20);
 		}
+		
+		
 		tree = sheet2.crop(5*width, 0, width*2, height*2);
 		
 		iceberg = sheet2.crop(width*7, 0, width, height);
 		rock1 = sheet2.crop(width*8, 0, width, height);
 		rock2 = sheet2.crop(width*9, 0, width, height);
-		sign = sheet2.crop(width*13, 0, width, height);
+		sign = sheet2.crop(width*13+3, 3, 26, 24);
 		shrub = sheet2.crop(width*13, height, width, height);
 		sandMound = sheet2.crop(width*14, height, width, height);
 		sandStone = sheet2.crop(width*14, height, width, height - 5);

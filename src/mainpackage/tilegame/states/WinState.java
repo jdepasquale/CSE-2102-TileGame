@@ -3,6 +3,7 @@ package mainpackage.tilegame.states;
 import java.awt.Graphics;
 
 import mainpackage.tilegame.Handler;
+import mainpackage.tilegame.Audio.AudioClips;
 import mainpackage.tilegame.graphics.Assets;
 
 public class WinState extends State{
@@ -12,6 +13,7 @@ public class WinState extends State{
 	public WinState(Handler handler, boolean pressed) {
 		super(handler);
 		this.pressed = pressed;
+		play(AudioClips.mT);
 	}
 
 	@Override
@@ -20,9 +22,10 @@ public class WinState extends State{
 			this.pressed = true;
 		}
 		if(pressed == true && !handler.getKeyManager().enter){
-			handler.getGame().setGameState(new GameState(handler));
+			handler.getGame().setGameState(null);
 			this.pressed = false;
-			State.setState(new MainMenuState(handler));
+			State.setState(handler.getGame().getMainMenuState());
+			handler.getGame().setPreviousState(handler.getGame().getMainMenuState());
 			
 		}
 	}

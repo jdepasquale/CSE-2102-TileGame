@@ -3,7 +3,6 @@ package mainpackage.tilegame.states;
 import java.awt.Graphics;
 
 import mainpackage.tilegame.Handler;
-import mainpackage.tilegame.Audio.AudioClips;
 import mainpackage.tilegame.graphics.Assets;
 
 public class GameOverState extends State{
@@ -25,8 +24,9 @@ public class GameOverState extends State{
 		}
 		if(pressed == true && !handler.getKeyManager().enter){
 			this.pressed = false;
+			handler.getGame().setGameState(null);
 			State.setState(new MainMenuState(handler));
-			
+			handler.getGame().setPreviousState(handler.getGame().getMainMenuState());
 		}
 			
 		

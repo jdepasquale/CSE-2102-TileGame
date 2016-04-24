@@ -12,6 +12,7 @@ import mainpackage.tilegame.tiles.Tile;
 public class HealthBar extends StaticEntity{
 	
 	private int currentHealth;
+	
 	public HealthBar(Handler handler, float x, float y){
 		super(handler, x, y, Tile.TILEWIDTH, (Tile.TILEHEIGHT));
 		

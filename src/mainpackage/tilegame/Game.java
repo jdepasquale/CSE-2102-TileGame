@@ -49,12 +49,18 @@ public class Game implements Runnable {
 	private State inventoryState;
 	
 	public State getGameState() {
-		previousState = gameState;
 		return gameState;
 	}
 
+	public State getPreviousState() {
+		return previousState;
+	}
+	
+	public void setPreviousState(State previousState) {
+		this.previousState = previousState;
+	}
+
 	public State getMainMenuState() {
-		previousState = mainMenuState;
 		return mainMenuState;
 	}
 
@@ -67,14 +73,10 @@ public class Game implements Runnable {
 	}
   
 	public State getSignState() {
-		previousState = signState;
 		return signState;
 	}
 
 	public void setSignState(State signState) {
-		
-		//this.signState.changeSign(signNumber);
-		previousState = signState;
 		this.signState = signState;
 	}
 
@@ -87,12 +89,10 @@ public class Game implements Runnable {
 	}
 
 	public State getInventoryState() {
-		previousState = inventoryState;
 		return inventoryState;
 	}
 
 	public void setInventoryState(State inventoryState) {
-		previousState = inventoryState;
 		this.inventoryState = inventoryState;
 	}
 
@@ -102,23 +102,15 @@ public class Game implements Runnable {
 	}
 
 
-	public State getPrevioustate() {
-		return previousState;
-	}
-	/*
-	public void setCurrentState(State currentState) {
-		this.currentState = currentState;
-	}
-*/
+	
+	
 	public void setGameState(State gameState) {
-		previousState = gameState;
 		this.gameState = gameState;
 		
 	}
 	
 
 	public void setMainMenuState(State mainMenuState) {
-		previousState = mainMenuState;
 		this.mainMenuState = mainMenuState;
 	}
 

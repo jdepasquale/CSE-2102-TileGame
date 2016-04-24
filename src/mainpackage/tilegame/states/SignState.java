@@ -12,11 +12,13 @@ public class SignState extends State{
 	public SignState(Handler handler, int signNumber) {
 		super(handler);
 		this.signNumber = signNumber;
+		
 	}
 
 	@Override
 	public void update() {
 		if(handler.getKeyManager().p){
+			handler.getGame().setPreviousState(this);
 			State.setState(handler.getGame().getPauseState());
 		}
 		

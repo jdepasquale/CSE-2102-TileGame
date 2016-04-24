@@ -2,7 +2,10 @@ package mainpackage.tilegame.entities.Creatures;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+
 import mainpackage.tilegame.Handler;
+import mainpackage.tilegame.entities.statics.item.Item;
 import mainpackage.tilegame.graphics.Animation;
 import mainpackage.tilegame.graphics.Assets;
 
@@ -17,11 +20,14 @@ public class Player extends Creature {
 	private Animation leftStandAnim;
 	private Animation rightAnim;
 	private Animation rightStandAnim;
+	private ArrayList<Item> inventory; 
 	
 	
 	
 	
 	
+	
+
 	public Player(Handler handler, float x, float y,  String lastAnimDirection) {
 		//sets starting location and creature size 
 		super(handler, x, y, (Creature.DEFAULT_CREATURE_WIDTH ), Creature.DEFAULT_CREATURE_HEIGHT, lastAnimDirection);
@@ -47,7 +53,9 @@ public class Player extends Creature {
 		rightAnim = new Animation(100, Assets.playerV1R);
 		rightStandAnim = new Animation(600, Assets.playerV1RS);
 	}
-
+	public ArrayList<Item> getInventory() {
+		return inventory;
+	}
 	@Override
 	public void update() {
 		//Animations
