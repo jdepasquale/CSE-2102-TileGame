@@ -69,18 +69,19 @@ public class GameState extends State {
 			}
 
 		}
-		
+
 		//check if touching item
-		/*
-		for(int i = 0 ; i < handler.getWorld().getItemEntities().size(); i++){
-			if(checkInteractionBox(handler.getWorld().getItemEntities().get(i).getInteractionBox(handler.getWorld().getEntityManager().getPlayer().getX(), handler.getWorld().getEntityManager().getPlayer().getY()))){
-				handler.getWorld().getItemEntities().get(i).add();
+		if(handler.getWorld().getItemEntities() != null){
+			for(int i = 0 ; i < handler.getWorld().getItemEntities().size(); i++){
+				if(checkInteractionBox(handler.getWorld().getItemEntities().get(i).getInteractionBox(handler.getWorld().getEntityManager().getPlayer().getX(), handler.getWorld().getEntityManager().getPlayer().getY()))){
+					handler.getWorld().getItemEntities().get(i).setFound(true);
+					handler.getWorld().getItemEntities().get(i).add();
+					handler.getWorld().getItemEntities().remove(i);
+				}
 			}
 		}
-		*/
-		
-		
-		
+
+
 		// Check if being attacked
 		for (int i =0; i < handler.getWorld().getRedBlobEntities().size(); i++ ){	
 			if(checkInteractionBox(handler.getWorld().getRedBlobEntities().get(i).getInteractionBox(handler.getWorld().getEntityManager().getPlayer().getX(), handler.getWorld().getEntityManager().getPlayer().getY()))){
@@ -90,12 +91,12 @@ public class GameState extends State {
 				}
 			}
 		}
-		
-		
-		
-		
 
-	
+
+
+
+
+
 	}
 
 	private boolean playerWon() {
@@ -110,7 +111,7 @@ public class GameState extends State {
 			}
 		}
 		return true;
-		
+
 	}
 
 

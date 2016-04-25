@@ -80,6 +80,7 @@ public class Assets {
 	public static BufferedImage winImage;
 	public static BufferedImage inventoryImage;
 	public static BufferedImage newItemImage;
+	public static BufferedImage keyNeededImage;
 
 	
 	public static void init(){
@@ -96,6 +97,8 @@ public class Assets {
 		winImage = sheet.crop(488,535, 480, 480);
 		inventoryImage = sheet.crop(972,535, 480, 480);
 		newItemImage = sheet.crop(1470,535, 400, 72);
+		keyNeededImage = sheet.crop(1469,603, 400, 98);
+		
 		
 		
 		
@@ -200,7 +203,7 @@ public class Assets {
 		
 		energyOre = sheet2.crop(16, 130, 16, 16);
 		
-		greyKey = sheet2.crop(16, 146, 16, 8);
+		greyKey = sheet2.crop(16, 145, 16, 8);
 		goldKey = sheet2.crop(16, 154, 16, 8);
 		
 		

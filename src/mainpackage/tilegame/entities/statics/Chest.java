@@ -33,7 +33,13 @@ public class Chest extends StaticEntity{
 	public boolean isOpen() {
 		return isOpen;
 	}
-
+	
+	public void open(){
+		
+		this.isOpen = true;	
+	
+	}
+	
 	@Override
 	public void update() {
 		
@@ -56,12 +62,7 @@ public class Chest extends StaticEntity{
 		g.drawImage(Assets.chest[imageNum], (int) (x - handler.getGameCamera().getxOffset()),(int)( y - handler.getGameCamera().getyOffset()), width, height, null);
 	}
 	
-	public void open(){
-		
-		this.isOpen = true;
-		
 	
-	}
 
 
 }

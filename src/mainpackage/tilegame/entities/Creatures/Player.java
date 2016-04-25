@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 import mainpackage.tilegame.Handler;
-import mainpackage.tilegame.entities.statics.item.Item;
+import mainpackage.tilegame.entities.statics.Item;
 import mainpackage.tilegame.graphics.Animation;
 import mainpackage.tilegame.graphics.Assets;
 
@@ -33,7 +33,7 @@ public class Player extends Creature {
 		interactionBox.width = width; 
 		interactionBox.height = height;
 		
-		this.inventory = null;
+		this.inventory = new ArrayList<Item>();
 		
 		//Animations
 		downAnim = new Animation(250, Assets.playerV1D);

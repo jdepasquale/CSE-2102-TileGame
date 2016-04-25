@@ -4,7 +4,7 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 
 import mainpackage.tilegame.Handler;
-import mainpackage.tilegame.entities.statics.item.Item;
+import mainpackage.tilegame.entities.statics.Item;
 import mainpackage.tilegame.graphics.Assets;
 
 public class InventoryState extends State{

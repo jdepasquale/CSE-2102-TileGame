@@ -18,7 +18,8 @@ import mainpackage.tilegame.entities.statics.SandStone;
 import mainpackage.tilegame.entities.statics.Shrub;
 import mainpackage.tilegame.entities.statics.Sign;
 import mainpackage.tilegame.entities.statics.Tree;
-import mainpackage.tilegame.entities.statics.item.Item;
+import mainpackage.tilegame.graphics.Assets;
+import mainpackage.tilegame.entities.statics.Item;
 import mainpackage.tilegame.tiles.Tile;
 import mainpackage.tilegame.utils.Utils;
 
@@ -79,9 +80,11 @@ public class World {
 			entityManager.addEntity(new Rock1(handler, i*54-32,0));
 		}
 		
-		
-		
-		
+		itemEntities = new ArrayList<Item>();
+		itemEntities.add(new Item(handler, 64*21, 64*16, 48, 24, "goldKey", 1, Assets.goldKey));
+		for(int i = 0; i <redBlobEntities.size(); i++){
+			entityManager.addEntity(itemEntities.get(i));
+		}
 		
 		//Maze work
 		entityManager.addEntity(new Tree(handler, 640, 640));
