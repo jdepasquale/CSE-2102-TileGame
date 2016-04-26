@@ -79,7 +79,7 @@ public class World {
 		}
 		
 		
-		//Rocks (for Jocks)
+		//canyon
 		for(int i = 0; i < 60; i++){
 			entityManager.addEntity(new Rock1(handler, i*54-32,0));
 		}
@@ -91,132 +91,13 @@ public class World {
 		for( int i = 0; i < 15; i++){
 			entityManager.addEntity(new Rock1(handler, i*64 + 64*6,64*7));
 			}
+		//dessert
 		
-		entityManager.addEntity(new Rock1(handler, 0,0));
+		//beach
 		
-		entityManager.addEntity(new Rock1(handler, 0,0));
+		//forest
 		
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
-		entityManager.addEntity(new Rock1(handler, 0,0));
+		//tundra
 		
 		
 		
