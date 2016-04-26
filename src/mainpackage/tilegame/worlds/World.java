@@ -93,8 +93,16 @@ public class World {
 			}
 		for( int  i= 0; i < 6 ; i++){
 			entityManager.addEntity(new Rock1(handler,64*2, 64*2+32 + 32*i ));
-		
+			entityManager.addEntity(new Rock1(handler,64*9, 64*2+32 + 32*i ));
+			entityManager.addEntity(new Rock1(handler,64*15, 64*2+32 + 32*i ));
+			entityManager.addEntity(new Rock1(handler,64*20, 64*2+32 + 32*i ));
+			entityManager.addEntity(new Rock1(handler,64*2, 64*2+32 + 32*i ));
+			entityManager.addEntity(new Rock1(handler,64*6, 64*4+32 + 32*i ));
+			entityManager.addEntity(new Rock1(handler,64*12, 64*4+32 + 32*i ));
+			entityManager.addEntity(new Rock1(handler,64*20, 64*4+32 + 32*i ));
+			entityManager.addEntity(new Rock1(handler,64*4, 64*5+32 + 32*i ));
 		}
+		entityManager.addEntity(new Rock1(handler,64*3, 64*5));
 		
 		//dessert
 		
