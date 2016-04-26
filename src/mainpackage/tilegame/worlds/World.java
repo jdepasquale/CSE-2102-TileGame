@@ -91,6 +91,11 @@ public class World {
 		for( int i = 0; i < 15; i++){
 			entityManager.addEntity(new Rock1(handler, i*64 + 64*6,64*7));
 			}
+		for( int  i= 0; i < 6 ; i++){
+			entityManager.addEntity(new Rock1(handler,64*2, 64*2+32 + 32*i ));
+		
+		}
+		
 		//dessert
 		
 		//beach

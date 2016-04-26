@@ -12,10 +12,9 @@ public class SandStone extends StaticEntity{
 		super(handler, x, y, Tile.TILEWIDTH, (Tile.TILEHEIGHT));
 		
 		collisionBounds.x = width/8;
-		collisionBounds.y = height/2;
+		collisionBounds.y = height/4;
 		collisionBounds.width = width/4*3;
-		collisionBounds.height = (height - 5)/2 ;
-	
+		collisionBounds.height = (height-5)/4;
 	}
 
 	@Override

@@ -11,9 +11,9 @@ public class Rock2 extends StaticEntity{
 	public Rock2(Handler handler, float x, float y ){
 		super(handler, x, y, Tile.TILEWIDTH, (Tile.TILEHEIGHT));
 		collisionBounds.x = width/8;
-		collisionBounds.y = height/2;
+		collisionBounds.y = height/4;
 		collisionBounds.width = width/4*3;
-		collisionBounds.height = (height)/2;
+		collisionBounds.height = height/4;
 	
 	}
 
