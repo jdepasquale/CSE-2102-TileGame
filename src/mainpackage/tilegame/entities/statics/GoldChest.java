@@ -3,9 +3,11 @@ package mainpackage.tilegame.entities.statics;
 import java.awt.Graphics;
 
 import mainpackage.tilegame.Handler;
+import mainpackage.tilegame.equipment.Equipment;
 import mainpackage.tilegame.graphics.Assets;
 
 public class GoldChest extends Chest{
+	
 	private long lastTime;
 	private long timer;
 	private long timer2;
@@ -15,8 +17,8 @@ public class GoldChest extends Chest{
 	private boolean openAttempt;
 	private boolean drawIt;
 	
-	public GoldChest(Handler handler, float x, float y) {
-		super(handler, x, y);
+	public GoldChest(Handler handler, float x, float y, Item stuff, Equipment equipmentItem) {
+		super(handler, x, y, stuff, equipmentItem);
 		collisionBounds.x = 0;
 		collisionBounds.y = height*2/3;
 		collisionBounds.width = width*3/4+3;

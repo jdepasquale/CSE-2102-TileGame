@@ -11,6 +11,7 @@ import mainpackage.tilegame.entities.statics.Chest;
 import mainpackage.tilegame.entities.statics.GoldChest;
 import mainpackage.tilegame.entities.statics.HealthBar;
 import mainpackage.tilegame.entities.statics.Iceberg;
+import mainpackage.tilegame.entities.statics.Item;
 import mainpackage.tilegame.entities.statics.Rock1;
 import mainpackage.tilegame.entities.statics.Rock2;
 import mainpackage.tilegame.entities.statics.SandMound;
@@ -19,7 +20,7 @@ import mainpackage.tilegame.entities.statics.Shrub;
 import mainpackage.tilegame.entities.statics.Sign;
 import mainpackage.tilegame.entities.statics.Tree;
 import mainpackage.tilegame.graphics.Assets;
-import mainpackage.tilegame.entities.statics.Item;
+ 
 import mainpackage.tilegame.tiles.Tile;
 import mainpackage.tilegame.utils.Utils;
 
@@ -45,26 +46,27 @@ public class World {
 		this.handler = handler;
 		entityManager = new EntityManager(handler, new Player(handler, 1185, 896, "D"));
 		
+		entityManager.addEntity(new HealthBar(handler, 0,0));
 		chestEntities = new ArrayList<Chest>();
-		chestEntities.add(new Chest(handler, 64*19, 3*64));
-		chestEntities.add(new Chest(handler, 64*2, 14*64));
-		chestEntities.add(new Chest(handler, 64*31, 12*64));
-		chestEntities.add(new Chest(handler, 64*27, 31*64));
-		chestEntities.add(new Chest(handler, 64*48, 35*64));
-		chestEntities.add(new GoldChest(handler, 24*64, 19*64));
+		chestEntities.add(new Chest(handler, 64*19, 3*64 , null, null));
+		chestEntities.add(new Chest(handler, 64*2, 14*64, null, null));
+		chestEntities.add(new Chest(handler, 64*31, 12*64, null, null));
+		chestEntities.add(new Chest(handler, 64*27, 41*64, null, null));
+		chestEntities.add(new Chest(handler, 64*48, 45*64, null, null));
+		chestEntities.add(new GoldChest(handler, 24*64, 19*64, null, null));
 		for(int i = 0; i <chestEntities.size(); i++){
 			entityManager.addEntity(chestEntities.get(i));
 		}
 		
 		signEntities = new ArrayList<Sign>();
 		signEntities.add(new Sign(handler, 1080, 870, 0));
-		signEntities.add(new Sign(handler, 64*2,24*64, 1));
+		signEntities.add(new Sign(handler, 64*2,64*34, 1));
 		signEntities.add(new Sign(handler, 64*12,64*18,2));
 		signEntities.add(new Sign(handler, 64*15,64*11, 3));
 		signEntities.add(new Sign(handler, 2*64,7*64, 4));
 		signEntities.add(new Sign(handler, 64*25,64*10, 5));
-		signEntities.add(new Sign(handler, 64*3,64*34, 6));
-		signEntities.add(new Sign(handler, 64*29,64*21, 7));
+		signEntities.add(new Sign(handler, 64*3,44*64, 6));
+		signEntities.add(new  Sign(handler, 64*29,64*31, 7));
 		signEntities.add(new Sign(handler, 1480, 1075, 8));
 		for(int i = 0; i <signEntities.size(); i++){
 			entityManager.addEntity(signEntities.get(i));
@@ -76,12 +78,168 @@ public class World {
 			entityManager.addEntity(redBlobEntities.get(i));
 		}
 		
+		
+		//Rocks (for Jocks)
 		for(int i = 0; i < 60; i++){
 			entityManager.addEntity(new Rock1(handler, i*54-32,0));
 		}
 		
+		for( int i = 0; i < 19; i++){
+		entityManager.addEntity(new Rock1(handler, i*64 + 64*2,64*2));
+		}
+		
+		for( int i = 0; i < 15; i++){
+			entityManager.addEntity(new Rock1(handler, i*64 + 64*6,64*7));
+			}
+		
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		entityManager.addEntity(new Rock1(handler, 0,0));
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		itemEntities = new ArrayList<Item>();
-		itemEntities.add(new Item(handler, 64*21, 64*16, 48, 24, "goldKey", 1, Assets.goldKey));
+		itemEntities.add(new Item(handler, 64*29, 64*16, 48, 24, "goldKey", 1, Assets.goldKey));
 		for(int i = 0; i <redBlobEntities.size(); i++){
 			entityManager.addEntity(itemEntities.get(i));
 		}
@@ -94,13 +252,14 @@ public class World {
 		//entityManager.addEntity(new Shrub(handler, 100,300));
 		//entityManager.addEntity(new Shrub(handler, 151,300));
 		//entityManager.addEntity(new Shrub(handler, 100,332));
-		entityManager.addEntity(new SandMound(handler, 1216,2122));
-		entityManager.addEntity(new SandStone(handler, 1216,2022));
-		entityManager.addEntity(new SandStone(handler, 1184,1990));
+		//entityManager.addEntity(new SandMound(handler, 1216,2122));
+		//entityManager.addEntity(new SandStone(handler, 1216,2022));
+		//entityManager.addEntity(new SandStone(handler, 1184,1990));
 
 
-		entityManager.addEntity(new HealthBar(handler, 0,0));
+		
 		LoadWorld(path);
+		
 		entityManager.getPlayer().setX(spawnX);
 		entityManager.getPlayer().setY(spawnY);
 

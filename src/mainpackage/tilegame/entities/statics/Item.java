@@ -16,9 +16,7 @@ public class Item extends StaticEntity{
 	private long lastTime;
 	private long timer;
 	private boolean drawFoundIt;
-	private int i = 0;
-	private boolean flash;
-	
+
 
 	public Item(Handler handler, float x, float y, int width, int height, String name, int quantity, BufferedImage itemImage) {
 		super(handler, x, y, width, height);

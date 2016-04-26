@@ -22,6 +22,27 @@ public class Assets {
 	public static BufferedImage[] playerV1LS;
 	public static BufferedImage[] playerV1R;
 	public static BufferedImage[] playerV1RS;
+	public static BufferedImage V1Costume;
+	
+	public static BufferedImage[] playerV2D; //animations for walking
+	public static BufferedImage[] playerV2DS; 
+	public static BufferedImage[] playerV2U;
+	public static BufferedImage[] playerV2US;
+	public static BufferedImage[] playerV2L;
+	public static BufferedImage[] playerV2LS;
+	public static BufferedImage[] playerV2R;
+	public static BufferedImage[] playerV2RS;
+	public static BufferedImage V2Costume;
+	
+	public static BufferedImage[] playerV3D; //animations for walking
+	public static BufferedImage[] playerV3DS; 
+	public static BufferedImage[] playerV3U;
+	public static BufferedImage[] playerV3US;
+	public static BufferedImage[] playerV3L;
+	public static BufferedImage[] playerV3LS;
+	public static BufferedImage[] playerV3R;
+	public static BufferedImage[] playerV3RS;
+	public static BufferedImage V3Costume;
 	
 	
 	public static BufferedImage water2;
@@ -81,7 +102,20 @@ public class Assets {
 	public static BufferedImage inventoryImage;
 	public static BufferedImage newItemImage;
 	public static BufferedImage keyNeededImage;
-
+	public static BufferedImage runningSock;
+	public static BufferedImage regularSock;
+	public static BufferedImage textbox;
+	
+	public static BufferedImage buns;
+	public static BufferedImage pitchfork;
+	public static BufferedImage megabyte;
+	public static BufferedImage potato;
+	public static BufferedImage yarn;
+	public static BufferedImage letter;
+	public static BufferedImage cutPotato;
+	
+	
+	
 	
 	public static void init(){
 		
@@ -98,6 +132,7 @@ public class Assets {
 		inventoryImage = sheet.crop(972,535, 480, 480);
 		newItemImage = sheet.crop(1470,535, 400, 72);
 		keyNeededImage = sheet.crop(1469,603, 400, 98);
+		textbox = sheet.crop(1469, 700, 400, 99);
 		
 		
 		
@@ -205,8 +240,8 @@ public class Assets {
 		
 		greyKey = sheet2.crop(16, 145, 16, 8);
 		goldKey = sheet2.crop(16, 154, 16, 8);
-		
-		
+		runningSock = sheet2.crop(64, 122, 16, 16);
+		regularSock = sheet2.crop(16, 138, 16, 16);
 	
 		chest = new BufferedImage[7];
 		for(int i = 0; i<7; i++){
@@ -229,6 +264,24 @@ public class Assets {
 		shrub = sheet2.crop(width*13, height, width, height);
 		sandMound = sheet2.crop(width*14, height, width, height);
 		sandStone = sheet2.crop(width*14, height, width, height - 5);
+		
+		
+		SpriteSheet sheet3 = new SpriteSheet(ImageLoader.loadImage("/textures/signs.png"));
+		buns = sheet3.crop(0, 0, width, height);
+		pitchfork = sheet3.crop(width, 0, width, height);
+		megabyte = sheet3.crop(width*2, 0, width, height);
+		potato = sheet3.crop(width*3, 0, width, height);
+		yarn = sheet3.crop(width*4, 0, width, height);
+		letter = sheet3.crop(width*5, 0, width, height);
+		cutPotato = sheet3.crop(94, height, 18 , height);
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		//Player		
 		SpriteSheet players = new SpriteSheet(ImageLoader.loadImage("/textures/players.png"));
@@ -260,5 +313,67 @@ public class Assets {
 		playerV1RS = new BufferedImage[1];	
 		playerV1RS[0] = players.crop(widthPlayers*3, heightPlayers, widthPlayers, heightPlayers);
 		
+		V1Costume = players.crop(154, 17, 16, 14 );
+		
+		
+		playerV2D = new BufferedImage[2];
+		playerV2D[0] = players.crop(widthPlayers, heightPlayers*2, widthPlayers, heightPlayers);
+		playerV2D[1] = players.crop(widthPlayers*2, heightPlayers*2, widthPlayers, heightPlayers);
+		
+		playerV2DS = new BufferedImage[1];	
+		playerV2DS[0] = players.crop(0, heightPlayers*2, widthPlayers, heightPlayers);
+		
+		playerV2U = new BufferedImage[2];
+		playerV2U[0] = players.crop(widthPlayers, heightPlayers*3, widthPlayers, heightPlayers);
+		playerV2U[1]= players.crop(widthPlayers*2, heightPlayers*3, widthPlayers, heightPlayers);
+		
+		playerV2US = new BufferedImage[1];	
+		playerV2US[0] = players.crop(0, heightPlayers*3, widthPlayers, heightPlayers);
+		
+		playerV2L = new BufferedImage[2];
+		playerV2L[1] = players.crop(widthPlayers*4, heightPlayers*2, widthPlayers, heightPlayers);
+		playerV2L[0] = players.crop(widthPlayers*5, heightPlayers*2, widthPlayers, heightPlayers);
+	
+		playerV2LS = new BufferedImage[1];	
+		playerV2LS[0]= players.crop(widthPlayers*3, heightPlayers*2, widthPlayers, heightPlayers); 
+		
+		playerV2R = new BufferedImage[2];		
+		playerV2R[0] = players.crop(widthPlayers*4, heightPlayers*3, widthPlayers, heightPlayers);
+		playerV2R[1] = players.crop(widthPlayers*5, heightPlayers*3, widthPlayers, heightPlayers);
+
+		playerV2RS = new BufferedImage[1];	
+		playerV2RS[0] = players.crop(widthPlayers*3, heightPlayers*3, widthPlayers, heightPlayers);
+		
+		V2Costume = players.crop(152, 107, 16, 14 );
+		
+		playerV3D = new BufferedImage[2];
+		playerV3D[0] = players.crop(widthPlayers, heightPlayers*4, widthPlayers, heightPlayers);
+		playerV3D[1] = players.crop(widthPlayers*2, heightPlayers*4, widthPlayers, heightPlayers);
+		
+		playerV3DS = new BufferedImage[1];	
+		playerV3DS[0] = players.crop(0, heightPlayers*4, widthPlayers, heightPlayers);
+		
+		playerV3U = new BufferedImage[2];
+		playerV3U[0] = players.crop(widthPlayers, heightPlayers*5, widthPlayers, heightPlayers);
+		playerV3U[1]= players.crop(widthPlayers*2, heightPlayers*5, widthPlayers, heightPlayers);
+		
+		playerV3US = new BufferedImage[1];	
+		playerV3US[0] = players.crop(0, heightPlayers*5, widthPlayers, heightPlayers);
+		
+		playerV3L = new BufferedImage[2];
+		playerV3L[1] = players.crop(widthPlayers*4, heightPlayers*4, widthPlayers, heightPlayers);
+		playerV3L[0] = players.crop(widthPlayers*5, heightPlayers*4, widthPlayers, heightPlayers);
+		
+		playerV3LS = new BufferedImage[1];	
+		playerV3LS[0]= players.crop(widthPlayers*3, heightPlayers*4, widthPlayers, heightPlayers); 
+		
+		playerV3R = new BufferedImage[2];		
+		playerV3R[0] = players.crop(widthPlayers*4, heightPlayers*5, widthPlayers, heightPlayers);
+		playerV3R[1] = players.crop(widthPlayers*5, heightPlayers*5, widthPlayers, heightPlayers);
+
+		playerV3RS = new BufferedImage[1];	
+		playerV3RS[0] = players.crop(widthPlayers*3, heightPlayers*5, widthPlayers, heightPlayers);
+		
+		V3Costume = players.crop(154, 168, 16, 14 );
 	}
 }

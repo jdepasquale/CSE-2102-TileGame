@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import mainpackage.tilegame.Handler;
 import mainpackage.tilegame.entities.statics.Item;
+import mainpackage.tilegame.equipment.Equipment;
 import mainpackage.tilegame.graphics.Animation;
 import mainpackage.tilegame.graphics.Assets;
 
@@ -21,6 +22,9 @@ public class Player extends Creature {
 	private Animation rightAnim;
 	private Animation rightStandAnim;
 	private ArrayList<Item> inventory; 
+	private ArrayList<Equipment> equipment;
+	
+
 	
 
 	public Player(Handler handler, float x, float y,  String lastAnimDirection) {
@@ -34,7 +38,12 @@ public class Player extends Creature {
 		interactionBox.height = height;
 		
 		this.inventory = new ArrayList<Item>();
-		
+		this.equipment = new ArrayList<Equipment>();
+		/* add equipment
+		equipment.add(new RunningSocks(handler, "socks", Assets.beach ));
+		equipment.add(new Costume(handler, "C2", Assets.V2Costume, Assets.playerV2D, Assets.playerV2DS, Assets.playerV2U, Assets.playerV2US, Assets.playerV2L, Assets.playerV2LS, Assets.playerV2R, Assets.playerV2RS));
+		equipment.add(new Costume(handler, "C3", Assets.V3Costume, Assets.playerV3D, Assets.playerV3DS, Assets.playerV3U, Assets.playerV3US, Assets.playerV3L, Assets.playerV3LS, Assets.playerV3R, Assets.playerV3RS));
+		*/
 		//Animations
 		downAnim = new Animation(250, Assets.playerV1D);
 		downStandAnim = new Animation(600, Assets.playerV1DS);
@@ -67,8 +76,6 @@ public class Player extends Creature {
 		handler.getGameCamera().centerOnEntity(this);
 	
 	}
-	
-	
 	
 	
 
@@ -115,6 +122,13 @@ public class Player extends Creature {
 		}	
 	}
 	
+	public ArrayList<Equipment> getEquipment() {
+		return equipment;
+	}
+
+	public void setEquipment(ArrayList<Equipment> equipment) {
+		this.equipment = equipment;
+	}
 	private BufferedImage getCurrentAnimationFrame(){
 		if(xMove < 0 ){
 			this.setLastAnimDirection("L");
@@ -145,7 +159,74 @@ public class Player extends Creature {
 			return downStandAnim.getCurrentFrame();
 		}
 	}
-	
-	
+
+	public Animation getDownAnim() {
+		return downAnim;
+	}
+
+	public void setDownAnim(Animation downAnim) {
+		this.downAnim = downAnim;
+	}
+
+	public Animation getDownStandAnim() {
+		return downStandAnim;
+	}
+
+	public void setDownStandAnim(Animation downStandAnim) {
+		this.downStandAnim = downStandAnim;
+	}
+
+	public Animation getUpAnim() {
+		return upAnim;
+	}
+
+	public void setUpAnim(Animation upAnim) {
+		this.upAnim = upAnim;
+	}
+
+	public Animation getUpStandAnim() {
+		return upStandAnim;
+	}
+
+	public void setUpStandAnim(Animation upStandAnim) {
+		this.upStandAnim = upStandAnim;
+	}
+
+	public Animation getLeftAnim() {
+		return leftAnim;
+	}
+
+	public void setLeftAnim(Animation leftAnim) {
+		this.leftAnim = leftAnim;
+	}
+
+	public Animation getLeftStandAnim() {
+		return leftStandAnim;
+	}
+
+	public void setLeftStandAnim(Animation leftStandAnim) {
+		this.leftStandAnim = leftStandAnim;
+	}
+
+	public Animation getRightAnim() {
+		return rightAnim;
+	}
+
+	public void setRightAnim(Animation rightAnim) {
+		this.rightAnim = rightAnim;
+	}
+
+	public Animation getRightStandAnim() {
+		return rightStandAnim;
+	}
+
+	public void setRightStandAnim(Animation rightStandAnim) {
+		this.rightStandAnim = rightStandAnim;
+	}
+
+	public void setInventory(ArrayList<Item> inventory) {
+		this.inventory = inventory;
+	}
+
 
 }

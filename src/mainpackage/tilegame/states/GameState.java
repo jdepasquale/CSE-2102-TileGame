@@ -59,6 +59,10 @@ public class GameState extends State {
 				for(int i =0; i < handler.getWorld().getChestEntities().size(); i++ ){
 					if(checkInteractionBox(handler.getWorld().getChestEntities().get(i).getInteractionBox(handler.getWorld().getEntityManager().getPlayer().getX(), handler.getWorld().getEntityManager().getPlayer().getY()))){
 						handler.getWorld().getChestEntities().get(i).open();
+						/*change costume
+						 handler.getWorld().getEntityManager().getPlayer().getEquipment().get(0).Equip();
+						 
+						 */
 						//check player has won
 						if(playerWon()){
 							AudioClips.fg.stop();

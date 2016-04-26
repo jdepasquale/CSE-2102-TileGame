@@ -3,16 +3,19 @@ package mainpackage.tilegame.entities.statics;
 import java.awt.Graphics;
 
 import mainpackage.tilegame.Handler;
+import mainpackage.tilegame.equipment.Equipment;
 import mainpackage.tilegame.graphics.Assets;
 
 public class Chest extends StaticEntity{
 
+	private Item stuff;
+	private Equipment equipmentItem;
 	private long lastTime;
 	private long timer;
 	private boolean isOpen;
 	private int imageNum;
 
-	public Chest(Handler handler, float x, float y) {
+	public Chest(Handler handler, float x, float y, Item stuff, Equipment equipmentItem) {
 		super(handler, x, y, 22*3, 20*3);
 		collisionBounds.x = 0;
 		collisionBounds.y = height*2/3;
@@ -29,6 +32,8 @@ public class Chest extends StaticEntity{
 		this.imageNum = 0;
 		this.isOpen = false;
 	}
+
+	
 
 	public boolean isOpen() {
 		return isOpen;
@@ -62,7 +67,21 @@ public class Chest extends StaticEntity{
 		g.drawImage(Assets.chest[imageNum], (int) (x - handler.getGameCamera().getxOffset()),(int)( y - handler.getGameCamera().getyOffset()), width, height, null);
 	}
 	
-	
+	//GETTTERS&SETTERS
+	public Item getStuff() {
+		return stuff;
+	}
 
+	public void setStuff(Item stuff) {
+		this.stuff = stuff;
+	}
+
+	public Equipment getEquipmentItem() {
+		return equipmentItem;
+	}
+
+	public void setEquipmentItem(Equipment equipmentItem) {
+		this.equipmentItem = equipmentItem;
+	}
 
 }

@@ -9,28 +9,17 @@ import mainpackage.tilegame.graphics.Assets;
 
 public class InventoryState extends State{
 
-	private ArrayList<Item> stuff; 
+	private ArrayList<Item> items; 
+	private ArrayList<Item> equipment;
+	
 	public InventoryState(Handler handler) {
 		super(handler);
 		
 		//get current inventory
-		
-		/*
-		 * first creat inventory in player use arraylist<item numbers>
-		 * item numbers tell you which immage to draw
-		 * getinventory using handler 
-		 *set this.inventor = inventory 
-		 */
-	}
-/*
-	public ArrayList<Entity> getInventory() {
-		return inventory;
+		this.items = handler.getWorld().getEntityManager().getPlayer().getInventory();
+		this.equipment = handler.getWorld().getEntityManager().getPlayer().getInventory();
 	}
 
-	public void setInventory(ArrayList<Entity> inventory) {
-		this.inventory = inventory;
-	}
-	*/
 
 	@Override
 	public void update() {
