@@ -37,6 +37,6 @@ public class HealthBar extends StaticEntity{
 	@Override
 	public void render(Graphics g) {
 		g.drawImage(Assets.healthBar[handler.getWorld().getEntityManager().getPlayer().getHealth() ], 375,5, null);
-		//handler.getWorld().getEntityManager().getPlayer().getHealth()-1
+		
 	}
 }

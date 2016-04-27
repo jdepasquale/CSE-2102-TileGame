@@ -17,16 +17,15 @@ public class EntityManager {
 		@Override
 		public int compare(Entity a, Entity b) {
 			
-			if (a.getY() + a.getHeight() < b.getY() +b.getHeight()){
-				/*
-				 * check if this entity is the health bar - make health bar rendar on top
-				if(a == handler.getWorld().getEntityManager().getEntities().get(1)){
-					return -1;
-				}
-				*/
-				return -1;
+			if (a.getY() + a.getHeight() < b.getY() +b.getHeight())
+			{
+				return -1;	// -1 means a rendered before b;
 			}
-			return 1;
+			
+			else{
+				return 1;
+			}
+			
 		}	
 	};
 	

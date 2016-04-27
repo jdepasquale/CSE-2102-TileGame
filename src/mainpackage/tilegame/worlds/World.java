@@ -47,6 +47,8 @@ public class World {
 		entityManager = new EntityManager(handler, new Player(handler, 1185, 896, "D"));
 		
 		entityManager.addEntity(new HealthBar(handler, 0,0));
+		
+		
 		chestEntities = new ArrayList<Chest>();
 		chestEntities.add(new Chest(handler, 64*19, 3*64 , null, null));
 		chestEntities.add(new Chest(handler, 64*2, 14*64, null, null));
