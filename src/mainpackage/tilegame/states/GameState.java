@@ -37,6 +37,7 @@ public class GameState extends State {
 		}
 
 		// Change to Inventory Screen 
+		
 		if(handler.getKeyManager().s){
 			handler.getGame().setGameState(this);
 			handler.getGame().setPreviousState(this);
