@@ -13,7 +13,7 @@ public class WinState extends State{
 	public WinState(Handler handler, boolean pressed) {
 		super(handler);
 		this.pressed = pressed;
-		play(AudioClips.mT);
+		
 	}
 
 	@Override
@@ -24,6 +24,7 @@ public class WinState extends State{
 		if(pressed == true && !handler.getKeyManager().enter){
 			handler.getGame().setGameState(null);
 			this.pressed = false;
+			AudioClips.mainTheme.loop();          ;
 			State.setState(handler.getGame().getMainMenuState());
 			handler.getGame().setPreviousState(handler.getGame().getMainMenuState());
 			

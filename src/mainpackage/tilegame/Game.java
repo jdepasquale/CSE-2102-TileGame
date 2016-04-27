@@ -91,10 +91,8 @@ public class Game implements Runnable {
 		gameOverState = new GameOverState(handler, false);
 		inventoryState = new InventoryState(handler);
 		signState = new SignState(handler, 0);
-		AudioClips.mT.stop();
-		AudioClips.fg.stop();
 		
-		State.setState(new MainMenuState(handler)); // call this anywhere to set state.
+		State.setState(mainMenuState); // call this anywhere to set state.
 	}
 
 	

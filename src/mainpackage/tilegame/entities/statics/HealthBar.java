@@ -28,7 +28,8 @@ public class HealthBar extends StaticEntity{
 	public void update() {
 		currentHealth = handler.getWorld().getEntityManager().getPlayer().getHealth() +1;
 		if(currentHealth  == 1 ){
-			AudioClips.fg.stop();
+			AudioClips.traveling.stop();
+			AudioClips.gamOver.loop();
 			State.setState(new GameOverState(handler, false));
 		}
 	}

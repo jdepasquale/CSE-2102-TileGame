@@ -21,8 +21,9 @@ public class PauseState extends State{
 		
 		if(handler.getKeyManager().q ){
 			handler.getGame().setGameState(new GameState(handler));
-			AudioClips.fg.stop();
-			State.setState(new MainMenuState(handler));
+			AudioClips.traveling.stop();
+			AudioClips.mainTheme.loop();
+			State.setState(handler.getGame().getMainMenuState());
 		}
 		
 		if(handler.getKeyManager().enter){

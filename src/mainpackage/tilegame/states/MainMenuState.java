@@ -9,7 +9,7 @@ public class MainMenuState extends State {
 	
 	public MainMenuState(Handler handler){
 		super(handler);
-		play(AudioClips.mT);
+		play(AudioClips.mainTheme);
 	}
 
 	
@@ -22,7 +22,8 @@ public class MainMenuState extends State {
 		*/
 		//switch to game state if left and right mouse button pressed
 		if(handler.getKeyManager().enter){
-			AudioClips.mT.stop();
+			AudioClips.mainTheme.stop();
+			play(AudioClips.traveling);
 			State.setState(new GameState(handler));
 			handler.getGame().setPreviousState(handler.getGame().getGameState());
 		}

@@ -53,7 +53,7 @@ public class World {
 		chestEntities.add(new Chest(handler, 64*31, 12*64, null, null));
 		chestEntities.add(new Chest(handler, 64*27, 41*64, null, null));
 		chestEntities.add(new Chest(handler, 64*48, 45*64, null, null));
-		chestEntities.add(new GoldChest(handler, 24*64, 19*64, null, null));
+		chestEntities.add(new GoldChest(handler, 4*64, 44*64, null, null));
 		for(int i = 0; i <chestEntities.size(); i++){
 			entityManager.addEntity(chestEntities.get(i));
 		}
@@ -105,8 +105,81 @@ public class World {
 		entityManager.addEntity(new Rock1(handler,64*3, 64*5));
 		
 		//dessert
+		for(int i = 0; i< 23 ; i++){
+			entityManager.addEntity(new Rock2(handler,64*5 +64*i, 64*33));
+		}
+		for(int i = 0; i< 22 ; i++){
+			entityManager.addEntity(new SandStone(handler,64*7 +64*i, 64*43));
+		}
+		for(int i = 0; i< 2 ; i++){
+			entityManager.addEntity(new Rock2(handler,64*(3+i) , 64*34));
+			entityManager.addEntity(new SandStone(handler,64*(3+i), 64*40));
+			entityManager.addEntity(new SandStone(handler,64*(13+i), 64*41));
+			entityManager.addEntity(new SandStone(handler,64*(22+i), 64*39));
+			entityManager.addEntity(new SandStone(handler,64*(21+i), 64*37));
+			entityManager.addEntity(new SandStone(handler,64*(13+i), 64*41));
+			entityManager.addEntity(new SandStone(handler,64*(25+i), 64*35));
+			entityManager.addEntity(new SandStone(handler,64*(36+i), 64*37));
+			entityManager.addEntity(new SandStone(handler,64*(18+i), 64*39));
+			entityManager.addEntity(new SandStone(handler,64*(22+i), 64*35));
+			entityManager.addEntity(new SandStone(handler,64*(16+i), 64*41));
+			entityManager.addEntity(new SandStone(handler,64*(26+i), 64*38));
+			
+		}
+		for(int i = 0; i< 4 ; i++){	
+			entityManager.addEntity(new SandStone(handler,64*6, 64*(34)+(32*i)));
+			entityManager.addEntity(new SandStone(handler,64*10, 64*(34)+(32*i)));
+			entityManager.addEntity(new SandStone(handler,64*(8), 64*(35)+(32*i)));
+			entityManager.addEntity(new SandStone(handler,64*(8), 64*(42)+(32*i)));
+			entityManager.addEntity(new SandStone(handler,64*(4), 64*(36)+(32*i)));
+			entityManager.addEntity(new Rock2(handler,64*(17), 64*(37)+(32*i)));
+			entityManager.addEntity(new SandStone(handler,64*(10), 64*(40)+(32*i)));
+			entityManager.addEntity(new SandStone(handler,64*(14), 64*(39)+(32*i)));
+			entityManager.addEntity(new SandStone(handler,64*(12), 64*(42)+(32*i)));
+			entityManager.addEntity(new SandStone(handler,64*(22), 64*(42)+(32*i)));
+			entityManager.addEntity(new SandStone(handler,64*(29), 64*(47)+(32*i)));
+			entityManager.addEntity(new SandStone(handler,64*(19), 64*(36)+(32*i)));
+			entityManager.addEntity(new SandStone(handler,64*(6), 64*(38)+(32*i)));
+			entityManager.addEntity(new SandStone(handler,64*(12), 64*(38)+(32*i)));
+			entityManager.addEntity(new SandStone(handler,64*(8), 64*(39)+i));
+			entityManager.addEntity(new SandStone(handler,64*(5+i), 64*37));
+			entityManager.addEntity(new SandStone(handler,64*(12+i), 64*37));
+			entityManager.addEntity(new SandStone(handler,64*(16), 64*39));
+			entityManager.addEntity(new SandStone(handler,64*(25+i), 64*40));
+			entityManager.addEntity(new SandStone(handler,64*(4+i), 64*42));
+			entityManager.addEntity(new SandStone(handler,64*(8+i), 64*39));
+			entityManager.addEntity(new SandStone(handler,64*(12+i), 64*35));
+			entityManager.addEntity(new SandStone(handler,64*(16+i), 64*35));
+		}
+		for(int i = 0; i< 14 ; i++){	
+			entityManager.addEntity(new SandStone(handler,64*(28), 64*(33)+(32*i)));
+			entityManager.addEntity(new SandStone(handler,64*(20), 64*(37)+(32*i)));
+			entityManager.addEntity(new SandStone(handler,64*(28), 64*(40)+(32*i)));
+			entityManager.addEntity(new SandStone(handler,64*(20), 64*(37)+(32*i)));
+			entityManager.addEntity(new SandStone(handler,64*(2), 64*(37)+(32*i)));
+			entityManager.addEntity(new SandStone(handler,64*(24), 64*(35)+(32*i)));
+		}
+		entityManager.addEntity(new SandStone(handler,64*(16), 64*40));
+		
 		
 		//beach
+		entityManager.addEntity(new SandMound(handler, 64*5, 64*44));
+		entityManager.addEntity(new SandMound(handler, 64*2, 64*45));
+		entityManager.addEntity(new SandMound(handler, 64*4, 64*47));
+		entityManager.addEntity(new SandMound(handler, 64*7, 64*45));
+		
+		entityManager.addEntity(new SandMound(handler, 64*11, 64*44));
+		entityManager.addEntity(new SandMound(handler, 64*22, 64*44));
+		entityManager.addEntity(new SandMound(handler, 64*15, 64*45));
+		entityManager.addEntity(new SandMound(handler, 64*24, 64*45));
+		
+		entityManager.addEntity(new SandMound(handler, 64*13, 64*46));
+		entityManager.addEntity(new SandMound(handler, 64*9, 64*47));
+		entityManager.addEntity(new SandMound(handler, 64*26, 64*46));
+		
+		entityManager.addEntity(new SandMound(handler, 64*19, 64*46));
+		entityManager.addEntity(new SandMound(handler, 64*23, 64*48));
+		
 		
 		//forest
 		
@@ -133,7 +206,7 @@ public class World {
 		
 		
 		itemEntities = new ArrayList<Item>();
-		itemEntities.add(new Item(handler, 64*29, 64*16, 48, 24, "goldKey", 1, Assets.goldKey));
+		itemEntities.add(new Item(handler, 64*24+10, 64*45 +6, 48, 24, "goldKey", 1, Assets.goldKey));
 		for(int i = 0; i <redBlobEntities.size(); i++){
 			entityManager.addEntity(itemEntities.get(i));
 		}

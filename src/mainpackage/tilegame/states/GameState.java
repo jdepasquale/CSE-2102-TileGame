@@ -19,7 +19,6 @@ public class GameState extends State {
 		handler.setWorld(world);
 		lastHpDropTime = System.currentTimeMillis();
 		timer = 0;
-		play(AudioClips.fg);
 	}
 
 
@@ -58,14 +57,16 @@ public class GameState extends State {
 			if(handler.getWorld().getEntityManager().getPlayer().getLastAnimDirection() == "U" || handler.getWorld().getEntityManager().getPlayer().getLastAnimDirection() == "R"){
 				for(int i =0; i < handler.getWorld().getChestEntities().size(); i++ ){
 					if(checkInteractionBox(handler.getWorld().getChestEntities().get(i).getInteractionBox(handler.getWorld().getEntityManager().getPlayer().getX(), handler.getWorld().getEntityManager().getPlayer().getY()))){
-						handler.getWorld().getChestEntities().get(i).open();
+						if(!handler.getWorld().getChestEntities().get(i).isOpen()){
+							handler.getWorld().getChestEntities().get(i).open();
+						}
 						/*change costume
 						 handler.getWorld().getEntityManager().getPlayer().getEquipment().get(0).Equip();
 						 
 						 */
 						//check player has won
 						if(playerWon()){
-							AudioClips.fg.stop();
+							AudioClips.traveling.stop();
 							State.setState( new WinState(handler, false));
 						}			
 					}			
@@ -80,6 +81,7 @@ public class GameState extends State {
 				if(checkInteractionBox(handler.getWorld().getItemEntities().get(i).getInteractionBox(handler.getWorld().getEntityManager().getPlayer().getX(), handler.getWorld().getEntityManager().getPlayer().getY()))){
 					handler.getWorld().getItemEntities().get(i).setFound(true);
 					handler.getWorld().getItemEntities().get(i).add();
+					AudioClips.itemGet.play();
 					handler.getWorld().getItemEntities().remove(i);
 				}
 			}
@@ -91,6 +93,7 @@ public class GameState extends State {
 			if(checkInteractionBox(handler.getWorld().getRedBlobEntities().get(i).getInteractionBox(handler.getWorld().getEntityManager().getPlayer().getX(), handler.getWorld().getEntityManager().getPlayer().getY()))){
 				if(timer >= 350){
 					handler.getWorld().getEntityManager().getPlayer().setHealth(handler.getWorld().getEntityManager().getPlayer().getHealth()-1);
+					AudioClips.healthDrop.play();
 					timer = 0;
 				}
 			}

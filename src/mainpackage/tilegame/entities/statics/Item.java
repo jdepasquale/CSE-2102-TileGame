@@ -27,9 +27,9 @@ public class Item extends StaticEntity{
 		collisionBounds.height = 0;
 
 		interactionBox.x = width/4; 
-		interactionBox.y = height/4; 
+		interactionBox.y = -height/4; 
 		interactionBox.width = width/2; 
-		interactionBox.height = height/2;
+		interactionBox.height = 1;
 
 	
 		

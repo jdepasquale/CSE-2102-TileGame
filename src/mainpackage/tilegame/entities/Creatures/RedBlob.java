@@ -21,7 +21,7 @@ public class RedBlob extends Creature{
 		collisionBounds.x = 8; 
 		collisionBounds.y = 0; 
 		collisionBounds.width = 16; 
-		collisionBounds.height = 48;
+		collisionBounds.height = 24;
 		
 		interactionBox.x = -width/2; 
 		interactionBox.y = -height/2; 

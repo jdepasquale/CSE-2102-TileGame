@@ -3,6 +3,7 @@ package mainpackage.tilegame.entities.statics;
 import java.awt.Graphics;
 
 import mainpackage.tilegame.Handler;
+import mainpackage.tilegame.Audio.AudioClips;
 import mainpackage.tilegame.equipment.Equipment;
 import mainpackage.tilegame.graphics.Assets;
 
@@ -42,6 +43,7 @@ public class GoldChest extends Chest{
 		//check if player has key
 		if(hasKey()){
 			this.isOpen = true;
+			AudioClips.itemGet.play();
 		}
 		else{
 			//output -> key is needed

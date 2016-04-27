@@ -3,6 +3,7 @@ package mainpackage.tilegame.entities.statics;
 import java.awt.Graphics;
 
 import mainpackage.tilegame.Handler;
+import mainpackage.tilegame.Audio.AudioClips;
 import mainpackage.tilegame.equipment.Equipment;
 import mainpackage.tilegame.graphics.Assets;
 
@@ -41,7 +42,8 @@ public class Chest extends StaticEntity{
 	
 	public void open(){
 		
-		this.isOpen = true;	
+		this.isOpen = true;
+		AudioClips.itemGet.play();
 	
 	}
 	
