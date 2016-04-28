@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import mainpackage.tilegame.Handler;
 import mainpackage.tilegame.entities.EntityManager;
-import mainpackage.tilegame.entities.NPC;
+import mainpackage.tilegame.entities.Creatures.NPC;
 import mainpackage.tilegame.entities.Creatures.Player;
 import mainpackage.tilegame.entities.Creatures.RedBlob;
 import mainpackage.tilegame.entities.statics.Chest;
@@ -52,9 +52,9 @@ public class World {
 		NPCEntities = new ArrayList<NPC>();
 		
 		NPCEntities.add(new NPC(handler, 29*64, 22*64, 64, 64, Assets.pitchfork,"Howdy there fella,"+"\n"+"my tractor is runnin' low on ENERGY ORE, if you can" + "\n"+ "find me 10, I'd be willin'a give ya a POTATO", 
+				"Here's a POTATO for that ENERGY ORE of yours",
 				"Thanks for the energy ore"+"\n" +"You take care of that potater now :)",
 				"WHHH.... WHAAAT HAVE YOU DONE TO MY"  + "\n" + "PRECIOUS POTATO!?!?!?!",
-				"d",
 				new Item(handler, 0, 0, 32, 32, "nothing", 10, Assets.energyOre),
 				new Item(handler, 0, 0, 32, 32, "energyOre", 10, Assets.energyOre),
 				new Item(handler, 0, 0, 32, 32, "potato", 1, Assets.potato)));
@@ -210,9 +210,25 @@ public class World {
 		entityManager.addEntity(new Tree(handler, 64*26, 4*64));
 		entityManager.addEntity(new Tree(handler, 64*27, 5*64));
 		entityManager.addEntity(new Tree(handler, 64*24, 4*64));
-		//entityManager.addEntity(new Tree(handler, 64*26, 6*64));
-		//entityManager.addEntity(new Tree(handler, 64*27, 8*64));
-		//entityManager.addEntity(new Tree(handler, 64*26, 4*64));
+		entityManager.addEntity(new Tree(handler, 64*26, 6*64));
+		entityManager.addEntity(new Tree(handler, 64*27, 8*64));
+		entityManager.addEntity(new Tree(handler, 64*26, 4*64));
+		entityManager.addEntity(new Tree(handler, 64*24, 4*64));
+		entityManager.addEntity(new Tree(handler, 64*27, 6*64));
+		entityManager.addEntity(new Tree(handler, 65*28, 8*64));
+		entityManager.addEntity(new Tree(handler, 64*27, 10*64));
+		entityManager.addEntity(new Tree(handler, 64*26, 12*64));
+		entityManager.addEntity(new Tree(handler, 64*27, 14*64));
+		entityManager.addEntity(new Tree(handler, 64*28, 13*64 +48));
+		entityManager.addEntity(new Tree(handler, 64*29, 14*64));
+		entityManager.addEntity(new Tree(handler, 64*30, 13*64 +32));
+		entityManager.addEntity(new Tree(handler, 64*31, 14*64));
+		
+		for(int i = 0; i< 21 ; i++){
+			entityManager.addEntity(new Shrub(handler,64*(28+i) ,20*64));
+			entityManager.addEntity(new Shrub(handler, 64*34, (i*32)+10*64));
+		}
+		
 		
 		
 		//tundra

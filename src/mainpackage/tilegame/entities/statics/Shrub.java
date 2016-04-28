@@ -12,9 +12,9 @@ public class Shrub extends StaticEntity{
 		super(handler, x, y, Tile.TILEWIDTH, (Tile.TILEHEIGHT *3/2));
 		
 		collisionBounds.x = 0;
-		collisionBounds.y = height/2;
+		collisionBounds.y = height*3/4;
 		collisionBounds.width = width ;
-		collisionBounds.height = height/4 ;
+		collisionBounds.height = 1 ;
 	
 	}
 

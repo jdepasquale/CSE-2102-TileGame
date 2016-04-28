@@ -1,4 +1,4 @@
-package mainpackage.tilegame.entities;
+package mainpackage.tilegame.entities.Creatures;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 import mainpackage.tilegame.Handler;
+import mainpackage.tilegame.entities.Entity;
 import mainpackage.tilegame.entities.statics.Item;
 import mainpackage.tilegame.graphics.Assets;
 
@@ -27,9 +28,9 @@ public class NPC extends Entity{
 	
 	public NPC(Handler handler, float x, float y, int width, int height, BufferedImage npcImage, String a, String b, String c, String d, Item itemNeeded, Item interactionItem, Item tradeItem) {
 		super(handler, x, y, width, height);
-		collisionBounds.x = width/2; 
+		collisionBounds.x = width/4; 
 		collisionBounds.y = height/4; 
-		collisionBounds.width = width*3/8; 
+		collisionBounds.width = width*5/8; 
 		collisionBounds.height = height/4;
 		
 		interactionBox.x = -width/2; 
