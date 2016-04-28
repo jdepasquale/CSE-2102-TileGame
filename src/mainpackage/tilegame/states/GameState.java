@@ -36,13 +36,6 @@ public class GameState extends State {
 			State.setState(handler.getGame().getPauseState());
 		}
 
-		// Change to Inventory Screen 
-		if(handler.getKeyManager().s){
-			handler.getGame().setGameState(this);
-			handler.getGame().setPreviousState(this);
-			State.setState(handler.getGame().getInventoryState());
-		}
-
 		// Check if c is pressed 
 		if(handler.getKeyManager().c){
 			//check if player is near a sign's interaction box
@@ -52,7 +45,16 @@ public class GameState extends State {
 						handler.getGame().setGameState(this);
 						State.setState(new SignState(handler, handler.getWorld().getSignEntities().get(i).getSignNumber()));
 					}
+				//Check if player is near NPC
+				for(int i =0; i < handler.getWorld().getNPCEntities().size(); i++ ){
+					if(checkInteractionBox(handler.getWorld().getNPCEntities().get(i).getInteractionBox(handler.getWorld().getEntityManager().getPlayer().getX(), handler.getWorld().getEntityManager().getPlayer().getY()))){
+						handler.getWorld().getNPCEntities().get(i).talk();
+					}
+				}
+			
+			
 			}
+			
 			//check if player is near a chest's interaction box
 			if(handler.getWorld().getEntityManager().getPlayer().getLastAnimDirection() == "U" || handler.getWorld().getEntityManager().getPlayer().getLastAnimDirection() == "R"){
 				for(int i =0; i < handler.getWorld().getChestEntities().size(); i++ ){

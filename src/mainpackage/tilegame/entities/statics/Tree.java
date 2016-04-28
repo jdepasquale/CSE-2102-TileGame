@@ -14,7 +14,7 @@ public class Tree extends StaticEntity{
 		collisionBounds.x = 100;
 		collisionBounds.y = (int) (height *2/3f + 12);
 		collisionBounds.width = Tile.TILEWIDTH;
-		collisionBounds.height = Tile.TILEHEIGHT -12;
+		collisionBounds.height = Tile.TILEHEIGHT -24;
 	
 	}
 

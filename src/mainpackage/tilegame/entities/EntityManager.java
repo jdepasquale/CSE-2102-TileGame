@@ -21,10 +21,8 @@ public class EntityManager {
 			{
 				return -1;	// -1 means a rendered before b;
 			}
+			return 1;
 			
-			else{
-				return 1;
-			}
 			
 		}	
 	};

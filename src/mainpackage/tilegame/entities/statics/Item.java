@@ -41,6 +41,10 @@ public class Item extends StaticEntity{
 	}
 
 	public void add(){
+		this.setX(0);
+		this.setY(0);
+		this.setWidth(32);
+		this.setHeight(32);
 		handler.getWorld().getEntityManager().getPlayer().getInventory().add(this);
 		this.timer = 0;
 		this.lastTime = System.currentTimeMillis();

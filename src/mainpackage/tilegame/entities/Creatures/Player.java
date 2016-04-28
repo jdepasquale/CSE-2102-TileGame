@@ -5,10 +5,13 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 import mainpackage.tilegame.Handler;
+import mainpackage.tilegame.Audio.AudioClips;
 import mainpackage.tilegame.entities.statics.Item;
 import mainpackage.tilegame.equipment.Equipment;
 import mainpackage.tilegame.graphics.Animation;
 import mainpackage.tilegame.graphics.Assets;
+import mainpackage.tilegame.states.GameOverState;
+import mainpackage.tilegame.states.State;
 
 public class Player extends Creature {
 
@@ -23,6 +26,10 @@ public class Player extends Creature {
 	private Animation rightStandAnim;
 	private ArrayList<Item> inventory; 
 	private ArrayList<Equipment> equipment;
+	private int currentHealth;
+	private boolean energyOre;
+	
+	private boolean potato;
 	
 
 	
@@ -39,6 +46,7 @@ public class Player extends Creature {
 		
 		this.inventory = new ArrayList<Item>();
 		this.equipment = new ArrayList<Equipment>();
+		//this.inventory.add(new Item(handler, 0, 0, 32, 32, "energyOre", 10, Assets.energyOre));
 		/* add equipment
 		equipment.add(new RunningSocks(handler, "socks", Assets.beach ));
 		equipment.add(new Costume(handler, "C2", Assets.V2Costume, Assets.playerV2D, Assets.playerV2DS, Assets.playerV2U, Assets.playerV2US, Assets.playerV2L, Assets.playerV2LS, Assets.playerV2R, Assets.playerV2RS));
@@ -53,12 +61,34 @@ public class Player extends Creature {
 		leftStandAnim = new Animation(600, Assets.playerV1LS);
 		rightAnim = new Animation(100, Assets.playerV1R);
 		rightStandAnim = new Animation(600, Assets.playerV1RS);
+		//this.currentHealth = handler.getWorld().getEntityManager().getPlayer().getHealth() +1;
 		
+		this.potato = false;
+		this.energyOre = false;
 		
 	}
 
 	@Override
 	public void update() {
+		//health
+		currentHealth = handler.getWorld().getEntityManager().getPlayer().getHealth() +1;
+		if(currentHealth  == 1 ){
+			AudioClips.traveling.stop();
+			AudioClips.gamOver.loop();
+			State.setState(new GameOverState(handler, false));
+		
+		}
+		//check items
+		for(int i = 0; i < inventory.size(); i++){
+			if(inventory.get(i).getName().equals("energyOre")){
+				energyOre = true;
+			}
+			if(inventory.get(i).getName().equals("potato")){
+				this.potato = true;
+			}
+		}
+		
+		
 		//Animations
 		downAnim.update();
 		downStandAnim.update();
@@ -94,6 +124,14 @@ public class Player extends Creature {
 				(int) (y + interactionBox.y - handler.getGameCamera().getyOffset()),
 				interactionBox.width, interactionBox.height);
 	*/
+		g.drawImage(Assets.healthBar[handler.getWorld().getEntityManager().getPlayer().getHealth() ], 375,5, null);
+		for(int i = 0; i < inventory.size(); i++){
+			g.drawImage(inventory.get(i).getItemImage(), 440, 30 + 10*i, null);
+		}
+	
+	
+	
+	
 	}
 	
 	//GETTERS&SETTERS
@@ -122,6 +160,22 @@ public class Player extends Creature {
 		}	
 	}
 	
+	public boolean getEnergyOre() {
+		return energyOre;
+	}
+
+	public void setEnergyOre(boolean energyOre) {
+		this.energyOre = energyOre;
+	}
+
+	public boolean getPotato() {
+		return potato;
+	}
+
+	public void setPotato(boolean potato) {
+		this.potato = potato;
+	}
+
 	public ArrayList<Equipment> getEquipment() {
 		return equipment;
 	}

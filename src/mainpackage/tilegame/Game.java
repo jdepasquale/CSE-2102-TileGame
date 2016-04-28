@@ -11,7 +11,6 @@ import mainpackage.tilegame.input.KeyManager;
 import mainpackage.tilegame.input.MouseManager;
 import mainpackage.tilegame.states.GameOverState;
 import mainpackage.tilegame.states.GameState;
-import mainpackage.tilegame.states.InventoryState;
 import mainpackage.tilegame.states.MainMenuState;
 import mainpackage.tilegame.states.PauseState;
 import mainpackage.tilegame.states.SignState;
@@ -89,7 +88,6 @@ public class Game implements Runnable {
 		previousState = mainMenuState;
 		winState = new WinState(handler, false);
 		gameOverState = new GameOverState(handler, false);
-		inventoryState = new InventoryState(handler);
 		signState = new SignState(handler, 0);
 		
 		State.setState(mainMenuState); // call this anywhere to set state.

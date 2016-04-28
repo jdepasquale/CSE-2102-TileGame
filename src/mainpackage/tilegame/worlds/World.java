@@ -5,11 +5,11 @@ import java.util.ArrayList;
 
 import mainpackage.tilegame.Handler;
 import mainpackage.tilegame.entities.EntityManager;
+import mainpackage.tilegame.entities.NPC;
 import mainpackage.tilegame.entities.Creatures.Player;
 import mainpackage.tilegame.entities.Creatures.RedBlob;
 import mainpackage.tilegame.entities.statics.Chest;
 import mainpackage.tilegame.entities.statics.GoldChest;
-import mainpackage.tilegame.entities.statics.HealthBar;
 import mainpackage.tilegame.entities.statics.Iceberg;
 import mainpackage.tilegame.entities.statics.Item;
 import mainpackage.tilegame.entities.statics.Rock1;
@@ -37,7 +37,7 @@ public class World {
 	private ArrayList<RedBlob> redBlobEntities;
 	private ArrayList<Chest> chestEntities;
 	private ArrayList<Item> itemEntities;
-	
+	private ArrayList<NPC> NPCEntities;
 	
 
 
@@ -46,8 +46,15 @@ public class World {
 		this.handler = handler;
 		entityManager = new EntityManager(handler, new Player(handler, 1185, 896, "D"));
 		
-		entityManager.addEntity(new HealthBar(handler, 0,0));
 		
+		//NPCs 
+		NPCEntities = new ArrayList<NPC>();
+		
+		NPCEntities.add(new NPC(handler, 29*64, 22*64, 64, 64, Assets.pitchfork,"Howdy there fella,"+"\n"+"my tractor is runnin' low on ENERGY ORE, if you can" + "\n"+ "find me 10, I'd be willin'a give ya a POTATO", 
+				"Thanks for the energy ore"+"\n" +"You take care of that potater now :)", "WHHH.... WHAAAT HAVE YOU DONE TO MY" + "\n" + "PRECIOUS POTATO!?!?!?!", new Item(handler, 0, 0, 32, 32, "energyOre", 10, Assets.energyOre), new Item(handler, 0, 0, 32, 32, "potato", 1, Assets.potato)));
+		for(int i = 0; i <NPCEntities.size(); i++){
+			entityManager.addEntity(NPCEntities.get(i));
+		}
 		
 		chestEntities = new ArrayList<Chest>();
 		chestEntities.add(new Chest(handler, 64*19, 3*64 , null, null));
@@ -121,7 +128,6 @@ public class World {
 			entityManager.addEntity(new SandStone(handler,64*(21+i), 64*37));
 			entityManager.addEntity(new SandStone(handler,64*(13+i), 64*41));
 			entityManager.addEntity(new SandStone(handler,64*(25+i), 64*35));
-			entityManager.addEntity(new SandStone(handler,64*(36+i), 64*37));
 			entityManager.addEntity(new SandStone(handler,64*(18+i), 64*39));
 			entityManager.addEntity(new SandStone(handler,64*(22+i), 64*35));
 			entityManager.addEntity(new SandStone(handler,64*(16+i), 64*41));
@@ -184,8 +190,63 @@ public class World {
 		
 		
 		//forest
+		entityManager.addEntity(new Tree(handler, 64*26, 4*64));
+		entityManager.addEntity(new Tree(handler, 64*27, 5*64));
+		entityManager.addEntity(new Tree(handler, 64*24, 4*64));
+		//entityManager.addEntity(new Tree(handler, 64*26, 6*64));
+		//entityManager.addEntity(new Tree(handler, 64*27, 8*64));
+		//entityManager.addEntity(new Tree(handler, 64*26, 4*64));
+		
 		
 		//tundra
+		for(int i = 0; i< 21 ; i++){	
+			entityManager.addEntity(new Iceberg(handler,64*(28+i), 64*(30)));
+		}
+
+		for(int i = 0; i< 19 ; i++){	
+			entityManager.addEntity(new Iceberg(handler,64*(28), 64*(33+i)));
+		}
+
+		for(int i = 0; i < 4; i++){
+			entityManager.addEntity(new Iceberg(handler,64*(31), 64*(30)+ 32*i));
+		}
+
+		entityManager.addEntity(new Iceberg(handler,64*(31), 64*(34)));
+		entityManager.addEntity(new Iceberg(handler,64*(32), 64*(34)));
+		entityManager.addEntity(new Iceberg(handler,64*(33), 64*(34)));
+
+		for(int i = 0; i < 4; i++){
+			entityManager.addEntity(new Iceberg(handler,64*(31), 64*(34)+ 32*i));
+		}
+
+		for(int i = 32; i < 36; i++){
+			entityManager.addEntity(new Iceberg(handler,64*(i), 64*(34)+32*3));
+		}
+
+		for(int i = 3; i > -1; i--){
+			entityManager.addEntity(new Iceberg(handler,64*(35), 64*(34)+32*i));
+		}
+
+		for(int i = 35; i <44 ; i++){
+			entityManager.addEntity(new Iceberg(handler,64*(i), 64*(34)+32*0));
+		}
+		/* devin
+		for(int i = 35; i< 43 ; i++){	
+			entityManager.addEntity(new Iceberg(handler,64*(i), 64*(35)));
+		}
+		
+		for(int i = 39; i< 48 ; i++){	
+			entityManager.addEntity(new Iceberg(handler,64*(33), 64*(i)));
+		}
+		
+		for(int i = 33; i< 44 ; i++){	
+			entityManager.addEntity(new Iceberg(handler,64*(i), 64*(49)));
+		}
+		
+		for(int i = 35; i< 43 ; i++){	
+			entityManager.addEntity(new Iceberg(handler,64*(i), 64*(47)));
+		}
+		*/
 		
 		
 		
@@ -208,23 +269,17 @@ public class World {
 		
 		
 		itemEntities = new ArrayList<Item>();
-		itemEntities.add(new Item(handler, 64*24+10, 64*45 +6, 48, 24, "goldKey", 1, Assets.goldKey));
-		for(int i = 0; i <redBlobEntities.size(); i++){
+		itemEntities.add(new Item(handler, 64*24+7, 64*45 +6, 48, 24, "goldKey", 1, Assets.goldKey));
+		itemEntities.add(new Item(handler, 64*20, 64*22, 32, 32, "energyOre", 10, Assets.energyOre));
+		
+		for(int i = 0; i <itemEntities.size(); i++){
 			entityManager.addEntity(itemEntities.get(i));
 		}
 		
-		//Maze work
+	
 		entityManager.addEntity(new Tree(handler, 640, 640));
-		//entityManager.addEntity(new Rock1(handler, 100,160));
-		//entityManager.addEntity(new Rock2(handler, 100,500));
-		//entityManager.addEntity(new Iceberg(handler, 100,260));
-		//entityManager.addEntity(new Shrub(handler, 100,300));
-		//entityManager.addEntity(new Shrub(handler, 151,300));
-		//entityManager.addEntity(new Shrub(handler, 100,332));
-		//entityManager.addEntity(new SandMound(handler, 1216,2122));
-		//entityManager.addEntity(new SandStone(handler, 1216,2022));
-		//entityManager.addEntity(new SandStone(handler, 1184,1990));
-
+		
+		
 
 		
 		LoadWorld(path);
@@ -253,6 +308,7 @@ public class World {
 
 		//Entities
 		entityManager.render(g);
+		
 	}
 
 	public Tile getTile(int x, int y){ // look up tile id 
@@ -330,6 +386,31 @@ public class World {
 	public ArrayList<Chest> getChestEntities() {
 		return chestEntities;
 	}
+	
+
+	public ArrayList<NPC> getNPCEntities() {
+		return NPCEntities;
+	}
+
+
+
+	public void setNPCEntities(ArrayList<NPC> nPCEntities) {
+		NPCEntities = nPCEntities;
+	}
+
+
+
+	public void setRedBlobEntities(ArrayList<RedBlob> redBlobEntities) {
+		this.redBlobEntities = redBlobEntities;
+	}
+
+
+
+	public void setChestEntities(ArrayList<Chest> chestEntities) {
+		this.chestEntities = chestEntities;
+	}
+
+
 
 	public void update(){
 		entityManager.update();

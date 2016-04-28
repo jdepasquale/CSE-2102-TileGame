@@ -132,7 +132,7 @@ public class Assets {
 		inventoryImage = sheet.crop(972,535, 480, 480);
 		newItemImage = sheet.crop(1470,535, 400, 72);
 		keyNeededImage = sheet.crop(1469,603, 400, 98);
-		textbox = sheet.crop(1469, 700, 400, 99);
+		textbox = sheet.crop(1469, 700, 400, 90);
 		
 		
 		
@@ -266,14 +266,14 @@ public class Assets {
 		sandStone = sheet2.crop(width*14, height, width, height - 5);
 		
 		
-		SpriteSheet sheet3 = new SpriteSheet(ImageLoader.loadImage("/textures/signs.png"));
+		SpriteSheet sheet3 = new SpriteSheet(ImageLoader.loadImage("/textures/NPCs.png"));
 		buns = sheet3.crop(0, 0, width, height);
 		pitchfork = sheet3.crop(width, 0, width, height);
 		megabyte = sheet3.crop(width*2, 0, width, height);
 		potato = sheet3.crop(width*3, 0, width, height);
 		yarn = sheet3.crop(width*4, 0, width, height);
 		letter = sheet3.crop(width*5, 0, width, height);
-		cutPotato = sheet3.crop(94, height, 18 , height);
+		cutPotato = sheet3.crop(94, height, 18 , 13);
 		
 		
 		
