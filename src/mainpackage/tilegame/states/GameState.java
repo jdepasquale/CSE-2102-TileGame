@@ -12,6 +12,7 @@ public class GameState extends State {
 	private World world;
 	private long lastHpDropTime;
 	long timer;
+	private boolean pressed1;
 
 	public GameState(Handler handler){
 		super(handler); // super- calls constructor of class that was extended 
@@ -19,6 +20,7 @@ public class GameState extends State {
 		handler.setWorld(world);
 		lastHpDropTime = System.currentTimeMillis();
 		timer = 0;
+		pressed1 = false;
 	}
 
 
@@ -34,6 +36,26 @@ public class GameState extends State {
 			handler.getGame().setGameState(this);
 			handler.getGame().setPreviousState(this);
 			State.setState(handler.getGame().getPauseState());
+		}
+		
+		//check if clicked then
+		if(handler.getKeyManager().s){
+			this.pressed1 = true;
+		}
+		if(pressed1 == true && !handler.getKeyManager().s){
+
+			// equip with bad codeed loop to get back to 0;
+			if(handler.getWorld().getEntityManager().getPlayer().getEq() >= handler.getWorld().getEntityManager().getPlayer().getEquipment().size() -1){
+				handler.getWorld().getEntityManager().getPlayer().setEq(0);
+				handler.getWorld().getEntityManager().getPlayer().getEquipment().get(0).Equip();
+				
+			}
+			else{
+				handler.getWorld().getEntityManager().getPlayer().setEq(handler.getWorld().getEntityManager().getPlayer().getEq()+1);
+				handler.getWorld().getEntityManager().getPlayer().getEquipment().get(handler.getWorld().getEntityManager().getPlayer().getEq()).Equip();
+			}
+			
+			this.pressed1 = false;
 		}
 
 		// Check if c is pressed 

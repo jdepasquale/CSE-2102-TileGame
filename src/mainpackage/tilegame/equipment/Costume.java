@@ -34,6 +34,7 @@ public class Costume extends Equipment {
 	
 
 	public void Equip(){
+		
 		handler.getWorld().getEntityManager().getPlayer().setDownAnim(new Animation(250, D));
 		handler.getWorld().getEntityManager().getPlayer().setDownStandAnim(new Animation(600, Ds));
 		handler.getWorld().getEntityManager().getPlayer().setUpAnim(new Animation(250, U));	

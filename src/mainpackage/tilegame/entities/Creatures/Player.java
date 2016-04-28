@@ -1,5 +1,7 @@
 package mainpackage.tilegame.entities.Creatures;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -7,6 +9,7 @@ import java.util.ArrayList;
 import mainpackage.tilegame.Handler;
 import mainpackage.tilegame.Audio.AudioClips;
 import mainpackage.tilegame.entities.statics.Item;
+import mainpackage.tilegame.equipment.Costume;
 import mainpackage.tilegame.equipment.Equipment;
 import mainpackage.tilegame.graphics.Animation;
 import mainpackage.tilegame.graphics.Assets;
@@ -28,7 +31,10 @@ public class Player extends Creature {
 	private ArrayList<Equipment> equipment;
 	private int currentHealth;
 	private boolean energyOre;
+	private int eq;
 	
+
+
 	private boolean potato;
 	
 
@@ -38,19 +44,26 @@ public class Player extends Creature {
 		//sets starting location and creature size 
 		super(handler, x, y, (Creature.DEFAULT_CREATURE_WIDTH ), Creature.DEFAULT_CREATURE_HEIGHT, lastAnimDirection);
 		
+		collisionBounds.x = width/4 - 2;
+		collisionBounds.y = height/2 -6;
+		collisionBounds.width = width*3/4 -8;
+		collisionBounds.height = height/2 +4;
 		
 		interactionBox.x = 0; 
 		interactionBox.y = 0; 
 		interactionBox.width = width; 
 		interactionBox.height = height;
 		
+		
 		this.inventory = new ArrayList<Item>();
 		this.equipment = new ArrayList<Equipment>();
+		this.eq =0;
+		equipment.add(new Costume(handler, "C1", Assets.V1Costume, Assets.playerV1D, Assets.playerV1DS, Assets.playerV1U, Assets.playerV1US, Assets.playerV1L, Assets.playerV1LS, Assets.playerV1R, Assets.playerV1RS));
+		//equipment.add(new Costume(handler, "C2", Assets.V2Costume, Assets.playerV2D, Assets.playerV2DS, Assets.playerV2U, Assets.playerV2US, Assets.playerV2L, Assets.playerV2LS, Assets.playerV2R, Assets.playerV2RS));
+		//equipment.add(new Costume(handler, "C3", Assets.V3Costume, Assets.playerV3D, Assets.playerV3DS, Assets.playerV3U, Assets.playerV3US, Assets.playerV3L, Assets.playerV3LS, Assets.playerV3R, Assets.playerV3RS));
 		//this.inventory.add(new Item(handler, 0, 0, 32, 32, "energyOre", 10, Assets.energyOre));
 		/* add equipment
 		equipment.add(new RunningSocks(handler, "socks", Assets.beach ));
-		equipment.add(new Costume(handler, "C2", Assets.V2Costume, Assets.playerV2D, Assets.playerV2DS, Assets.playerV2U, Assets.playerV2US, Assets.playerV2L, Assets.playerV2LS, Assets.playerV2R, Assets.playerV2RS));
-		equipment.add(new Costume(handler, "C3", Assets.V3Costume, Assets.playerV3D, Assets.playerV3DS, Assets.playerV3U, Assets.playerV3US, Assets.playerV3L, Assets.playerV3LS, Assets.playerV3R, Assets.playerV3RS));
 		*/
 		//Animations
 		downAnim = new Animation(250, Assets.playerV1D);
@@ -126,7 +139,18 @@ public class Player extends Creature {
 	*/
 		g.drawImage(Assets.healthBar[handler.getWorld().getEntityManager().getPlayer().getHealth() ], 375,5, null);
 		for(int i = 0; i < inventory.size(); i++){
-			g.drawImage(inventory.get(i).getItemImage(), 440, 30 + 10*i, null);
+			
+			g.drawImage(inventory.get(i).getItemImage(), 420, 30 + 40*i, handler.getWorld().getEntityManager().getPlayer().getInventory().get(i).getWidth(), handler.getWorld().getEntityManager().getPlayer().getInventory().get(i).getHeight(), null);
+			
+			if(inventory.get(i).getQuantity() > 1){
+				g.setColor(Color.ORANGE);
+				g.setFont(new Font("Comic Sans", 1, 22));
+				g.drawString("x"+Integer.toString(inventory.get(i).getQuantity()), 453, 50 +40*i);
+			}
+		
+		}
+		for(int i = 0; i < equipment.size(); i++){
+			g.drawImage(equipment.get(i).getEquipmentImage(), 450, 440 - 20*i, null);
 		}
 	
 	
@@ -138,7 +162,13 @@ public class Player extends Creature {
 	public ArrayList<Item> getInventory() {
 		return inventory;
 	}
-	
+	public int getEq() {
+		return eq;
+	}
+
+	public void setEq(int eq) {
+		this.eq = eq;
+	}
 	private void getInput(){
 		xMove = 0;
 		yMove = 0;

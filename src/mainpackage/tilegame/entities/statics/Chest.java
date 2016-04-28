@@ -32,6 +32,8 @@ public class Chest extends StaticEntity{
 		lastTime = System.currentTimeMillis();
 		this.imageNum = 0;
 		this.isOpen = false;
+		this.stuff = stuff;
+		this.equipmentItem = equipmentItem;
 	}
 
 	
@@ -44,8 +46,21 @@ public class Chest extends StaticEntity{
 		
 		this.isOpen = true;
 		AudioClips.itemGet.play();
-	
+		add();
 	}
+	
+	public void add(){
+		if(stuff != null){
+			stuff.setFound(true);
+			stuff.add();
+			
+		}
+		if(equipmentItem != null){
+			handler.getWorld().getEntityManager().getPlayer().getEquipment().add(equipmentItem);
+		}
+	}
+	
+	
 	
 	@Override
 	public void update() {

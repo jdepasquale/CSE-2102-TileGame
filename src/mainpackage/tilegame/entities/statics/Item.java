@@ -16,6 +16,7 @@ public class Item extends StaticEntity{
 	private long lastTime;
 	private long timer;
 	private boolean drawFoundIt;
+	private boolean isthere;
 
 
 	public Item(Handler handler, float x, float y, int width, int height, String name, int quantity, BufferedImage itemImage) {
@@ -38,14 +39,22 @@ public class Item extends StaticEntity{
 		this.itemImage = itemImage;
 		this.found = false;
 		this.drawFoundIt = false;
+		this.isthere = false;
 	}
 
 	public void add(){
-		this.setX(0);
-		this.setY(0);
-		this.setWidth(32);
-		this.setHeight(32);
-		handler.getWorld().getEntityManager().getPlayer().getInventory().add(this);
+		
+		for(int i = 0; i<handler.getWorld().getEntityManager().getPlayer().getInventory().size(); i++ ){
+			if(handler.getWorld().getEntityManager().getPlayer().getInventory().get(i).getName() == this.getName()){
+				handler.getWorld().getEntityManager().getPlayer().getInventory().get(i).setQuantity(handler.getWorld().getEntityManager().getPlayer().getInventory().get(i).getQuantity() + this.getQuantity());
+				isthere = true;
+			}
+			
+		}
+		if(!this.isthere){
+			handler.getWorld().getEntityManager().getPlayer().getInventory().add(this);
+		}
+		
 		this.timer = 0;
 		this.lastTime = System.currentTimeMillis();
 

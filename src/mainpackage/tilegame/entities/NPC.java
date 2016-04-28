@@ -16,6 +16,7 @@ public class NPC extends Entity{
 	private String a;
 	private String b;
 	private String c;
+	private String d;
 	private BufferedImage npcImage;
 	private boolean talking;
 	private boolean had;
@@ -24,7 +25,7 @@ public class NPC extends Entity{
 	private Item toGive;
 	
 	
-	public NPC(Handler handler, float x, float y, int width, int height, BufferedImage npcImage, String a, String b, String c, Item itemNeeded, Item toGive) {
+	public NPC(Handler handler, float x, float y, int width, int height, BufferedImage npcImage, String a, String b, String c, String d, Item itemNeeded, Item interactionItem, Item tradeItem) {
 		super(handler, x, y, width, height);
 		collisionBounds.x = width/2; 
 		collisionBounds.y = height/4; 
@@ -43,7 +44,7 @@ public class NPC extends Entity{
 		this.c = c;
 		this.itemNeeded = itemNeeded;
 		this.had = false;
-		this.toGive = toGive;
+		this.toGive = tradeItem;
 		this.currentString = a;
 		this.talking = false;
 		this.closed = true;

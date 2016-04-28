@@ -44,6 +44,7 @@ public class GoldChest extends Chest{
 		if(hasKey()){
 			this.isOpen = true;
 			AudioClips.itemGet.play();
+			add();
 		}
 		else{
 			//output -> key is needed

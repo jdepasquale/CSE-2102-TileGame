@@ -19,6 +19,7 @@ import mainpackage.tilegame.entities.statics.SandStone;
 import mainpackage.tilegame.entities.statics.Shrub;
 import mainpackage.tilegame.entities.statics.Sign;
 import mainpackage.tilegame.entities.statics.Tree;
+import mainpackage.tilegame.equipment.Costume;
 import mainpackage.tilegame.graphics.Assets;
  
 import mainpackage.tilegame.tiles.Tile;
@@ -51,18 +52,34 @@ public class World {
 		NPCEntities = new ArrayList<NPC>();
 		
 		NPCEntities.add(new NPC(handler, 29*64, 22*64, 64, 64, Assets.pitchfork,"Howdy there fella,"+"\n"+"my tractor is runnin' low on ENERGY ORE, if you can" + "\n"+ "find me 10, I'd be willin'a give ya a POTATO", 
-				"Thanks for the energy ore"+"\n" +"You take care of that potater now :)", "WHHH.... WHAAAT HAVE YOU DONE TO MY" + "\n" + "PRECIOUS POTATO!?!?!?!", new Item(handler, 0, 0, 32, 32, "energyOre", 10, Assets.energyOre), new Item(handler, 0, 0, 32, 32, "potato", 1, Assets.potato)));
+				"Thanks for the energy ore"+"\n" +"You take care of that potater now :)",
+				"WHHH.... WHAAAT HAVE YOU DONE TO MY"  + "\n" + "PRECIOUS POTATO!?!?!?!",
+				"d",
+				new Item(handler, 0, 0, 32, 32, "nothing", 10, Assets.energyOre),
+				new Item(handler, 0, 0, 32, 32, "energyOre", 10, Assets.energyOre),
+				new Item(handler, 0, 0, 32, 32, "potato", 1, Assets.potato)));
+		NPCEntities.add(new NPC(handler, 15*64, 29*64, 64, 64, Assets.buns,"I would cook, but I'm just so terribly ALONE...." ,  
+				"Thanks for the LOVE LETTER", "c", "d", new Item(handler, 0, 0, 36, 26, "cutPotato", 10, Assets.cutPotato), 
+				new Item(handler, 0, 0, 32, 32, "loveLetter", 1, Assets.letter),
+				new Item(handler, 0, 0, 32, 32, "fries", 1, Assets.potato)));
+		NPCEntities.add(new NPC(handler, 46*64, 26*64, 64, 64, Assets.megabyte,"like meow, or whatever.",  
+				"Hey is that YARN" + "\n" + "He took your YARN",
+				"You try to take YARN back." + "\n"+ "Unsucessful but he sliced your POTATO", 
+				"Sorry about slicing your POTATO but like meow, or whatever.", 
+				new Item(handler, 0, 0, 32, 32, "yarn", 10, Assets.yarn), 
+				new Item(handler, 0, 0, 32, 32, "potato", 1, Assets.potato), 
+				new Item(handler, 0, 0, 36, 26, "cutPotato", 10, Assets.cutPotato)));
 		for(int i = 0; i <NPCEntities.size(); i++){
 			entityManager.addEntity(NPCEntities.get(i));
 		}
 		
 		chestEntities = new ArrayList<Chest>();
-		chestEntities.add(new Chest(handler, 64*19, 3*64 , null, null));
-		chestEntities.add(new Chest(handler, 64*2, 14*64, null, null));
-		chestEntities.add(new Chest(handler, 64*31, 12*64, null, null));
-		chestEntities.add(new Chest(handler, 64*27, 41*64, null, null));
-		chestEntities.add(new Chest(handler, 64*48, 45*64, null, null));
-		chestEntities.add(new GoldChest(handler, 4*64, 44*64, null, null));
+		chestEntities.add(new Chest(handler, 64*19, 3*64 , new Item(handler, 0, 0, 32, 32,"yarn", 1, Assets.yarn ), null));
+		chestEntities.add(new Chest(handler, 64*2, 14*64, null, new Costume(handler, "C3", Assets.V3Costume, Assets.playerV3D, Assets.playerV3DS, Assets.playerV3U, Assets.playerV3US, Assets.playerV3L, Assets.playerV3LS, Assets.playerV3R, Assets.playerV3RS)));
+		chestEntities.add(new Chest(handler, 64*31, 12*64, null, new Costume(handler, "C2", Assets.V2Costume, Assets.playerV2D, Assets.playerV2DS, Assets.playerV2U, Assets.playerV2US, Assets.playerV2L, Assets.playerV2LS, Assets.playerV2R, Assets.playerV2RS)));
+		chestEntities.add(new Chest(handler, 64*27, 41*64, new Item(handler, 0, 0, 32, 32, "potato", 1, Assets.potato), null));
+		chestEntities.add(new Chest(handler, 64*48, 45*64, new Item(handler, 0, 0, 36, 26, "cutPotato", 1, Assets.cutPotato), null));
+		chestEntities.add(new GoldChest(handler, 4*64, 44*64, new Item(handler, 0, 0, 32, 32, "energyOre", 1, Assets.energyOre), null));
 		for(int i = 0; i <chestEntities.size(); i++){
 			entityManager.addEntity(chestEntities.get(i));
 		}
@@ -270,8 +287,8 @@ public class World {
 		
 		itemEntities = new ArrayList<Item>();
 		itemEntities.add(new Item(handler, 64*24+7, 64*45 +6, 48, 24, "goldKey", 1, Assets.goldKey));
-		itemEntities.add(new Item(handler, 64*20, 64*22, 32, 32, "energyOre", 10, Assets.energyOre));
-		
+		itemEntities.add(new Item(handler, 64*20, 64*22, 32, 32, "energyOre", 1, Assets.energyOre));
+		itemEntities.add(new Item(handler, 64*20, 64*26, 32, 32, "energyOre", 1, Assets.energyOre));
 		for(int i = 0; i <itemEntities.size(); i++){
 			entityManager.addEntity(itemEntities.get(i));
 		}
