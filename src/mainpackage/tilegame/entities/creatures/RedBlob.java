@@ -1,4 +1,4 @@
-package mainpackage.tilegame.entities.Creatures;
+package mainpackage.tilegame.entities.creatures;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;

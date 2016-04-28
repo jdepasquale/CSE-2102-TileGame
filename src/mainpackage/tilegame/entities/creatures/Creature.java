@@ -1,4 +1,4 @@
-package mainpackage.tilegame.entities.Creatures;
+package mainpackage.tilegame.entities.creatures;
 
 import mainpackage.tilegame.Handler;
 import mainpackage.tilegame.entities.Entity;

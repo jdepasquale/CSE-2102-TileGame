@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 import mainpackage.tilegame.Handler;
-import mainpackage.tilegame.entities.Creatures.Player;
+import mainpackage.tilegame.entities.creatures.Player;
 
 public class EntityManager {
 	private Handler handler;
