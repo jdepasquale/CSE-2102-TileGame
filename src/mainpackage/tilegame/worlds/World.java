@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 import mainpackage.tilegame.Handler;
 import mainpackage.tilegame.entities.EntityManager;
-import mainpackage.tilegame.entities.creatures.NPC;
 import mainpackage.tilegame.entities.creatures.Player;
 import mainpackage.tilegame.entities.creatures.RedBlob;
+import mainpackage.tilegame.entities.npc.NPC;
 import mainpackage.tilegame.entities.statics.Chest;
 import mainpackage.tilegame.entities.statics.GoldChest;
 import mainpackage.tilegame.entities.statics.Iceberg;

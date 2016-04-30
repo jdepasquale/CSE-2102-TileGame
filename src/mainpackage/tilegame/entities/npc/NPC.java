@@ -1,4 +1,4 @@
-package mainpackage.tilegame.entities.creatures;
+package mainpackage.tilegame.entities.npc;
 
 import java.awt.Color;
 import java.awt.Font;
